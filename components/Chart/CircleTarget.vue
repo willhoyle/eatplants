@@ -12,56 +12,6 @@
 
 import Draggable from 'gsap/Draggable'
 
-function startDrag(evt) {
-  let svg = this.svg()
-  this.selected = evt.target.parentNode
-  this.offset = getMousePosition(evt, svg)
-
-  // Get all the transforms currently on this element
-  let transforms = this.selected.transform.baseVal
-  // Ensure the first transform is a translate transform
-  if (
-    transforms.length === 0 ||
-    transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE
-  ) {
-    // Create an transform that translates by (0, 0)
-    let translate = svg.createSVGTransform()
-    translate.setTranslate(0, 0)
-    // Add the translation to the front of the transforms list
-    this.selected.transform.baseVal.insertItemBefore(translate, 0)
-  }
-  // Get initial translation amount
-  this.transform = transforms.getItem(0)
-  this.offset.x -= this.transform.matrix.e
-  this.offset.y -= this.transform.matrix.f
-}
-function drag(evt) {
-  if (this.selected) {
-    evt.preventDefault()
-
-    var coord = getMousePosition(evt, this.svg())
-    this.transform.setTranslate(
-      coord.x - this.offset.x,
-      0
-      //   coord.y - this.offset.y
-    )
-  }
-}
-
-function getMousePosition(evt, svg) {
-  var CTM = svg.getScreenCTM()
-  if (evt.touches) {
-    evt = evt.touches[0]
-  }
-  return {
-    x: (evt.clientX - CTM.e) / CTM.a,
-    y: (evt.clientY - CTM.f) / CTM.d
-  }
-}
-
-function endDrag(evt) {
-  this.selected = null
-}
 export default {
   props: {
     disabled: {
@@ -76,7 +26,11 @@ export default {
     svg: Function,
     value: Number,
     max: Function,
-    bounds: Function
+    bounds: Function,
+    al: Date
+  },
+  watch: {
+    al() {}
   },
   mounted() {
     let vm = this
@@ -110,12 +64,7 @@ export default {
       offset: {}
     }
   },
-  methods: {
-    mousedown: startDrag,
-    mousemove: drag,
-    mouseup: endDrag,
-    mouseleave: endDrag
-  }
+  methods: {}
 }
 </script>
 

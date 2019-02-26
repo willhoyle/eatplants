@@ -13,7 +13,7 @@
                                         button(@click="remove({food, index})").button.is-small.is-danger.mr-2
                                             b-icon(icon="close")
                                         | {{food.shortDescription}}
-                                        svg-slider(v-model="val")
+                                        svg-slider(v-model="val" min="200" max="350")
             .column.is-4
 </template>
 

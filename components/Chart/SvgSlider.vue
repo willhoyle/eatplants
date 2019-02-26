@@ -1,5 +1,6 @@
 <template lang="pug">
     div(ref="outer")
+        button(@click="aler") Alert
         svg(ref="svg" id="drawing").svg-container
             defs
                 linearGradient#outOfRangeLeft(x1='0%', y1='0%', x2='100%', y2='0%')
@@ -19,9 +20,14 @@
             template(v-for="layout in layouts")
                 rect(:width="layout.width" height="20" :x="layout.x" y="25" :fill="layout.fill")
                 rect(:ref="layout.ref" :width="`${parseFloat(layout.width) + 3}%`" height="0" :x="`${parseFloat(layout.x) - 1.5}%`" y="25" fill="transparent")
-
+            text(:x="`${parseFloat(layouts[1].x) - 2}%`" y="65") 
+              tspan {{min}} 
+              tspan g
+            text(:x="`${parseFloat(layouts[2].x) - 2}%`" y="65")
+              tspan {{max}} 
+              tspan.cals &#xF238
             
-            svg-circle(ref="target" :target="target" :svg="svg" :value="value.value" :max="getMaxWidth" :bounds="getRefs")
+            svg-circle(ref="target" :target="target" :svg="svg" :value="value.value" :max="getMaxWidth" :bounds="getRefs" :al="al")
 </template>
 
 <script>
@@ -57,8 +63,8 @@ export default {
     //   .plot([[0, 0], [50, 500], [0, 800], [200, 800], [250, 500], [800, 0]])
   },
   props: {
-    min: Object,
-    max: Object,
+    min: String,
+    max: String,
     value: Object
   },
   computed: {
@@ -95,10 +101,14 @@ export default {
   },
   data() {
     return {
-      draw: null
+      draw: null,
+      al: null
     }
   },
   methods: {
+    aler() {
+      this.al = new Date()
+    },
     getRefs() {
       return this.$refs
     },
@@ -119,6 +129,11 @@ export default {
 svg {
   height: 100px;
   width: 100%;
+}
+.cals {
+  font-family: 'Material Design Icons';
+  fill: red;
+  font-size: 20px;
 }
 .svg-container {
   margin-top: 10px;
