@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import { SVG } from '@svgdotjs/svg.js'
 import debounce from 'debounce'
 
 export default {

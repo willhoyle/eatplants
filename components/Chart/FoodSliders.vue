@@ -12,8 +12,8 @@
                                     div.is-centered 
                                         button(@click="remove({food, index})").button.is-small.is-danger.mr-2
                                             b-icon(icon="close")
-                                        | {{food.shortDescription}}
-                                        svg-slider(v-model="val" min="200" max="350")
+                                        | {{food.longDescription}}
+                                        svg-slider(:value="values[index]" @input="values[index] = $event" :limitMin="0" :min="100" :max="400" :limitMax="500")
             .column.is-4
 </template>
 
@@ -22,6 +22,7 @@ import SvgSlider from './SvgSlider.vue'
 export default {
   components: { SvgSlider },
   props: ['foods'],
+  watch: {},
   methods: {
     remove(payload) {
       this.$emit('remove', payload)
@@ -29,7 +30,8 @@ export default {
   },
   data() {
     return {
-      val: { value: 300 }
+      value: { value: 300 },
+      values: [{ value: 400 }, { value: 330 }]
     }
   }
 }

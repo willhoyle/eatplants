@@ -1,6 +1,5 @@
 <template lang="pug">
     div(ref="outer")
-        button(@click="aler") Alert
         svg(ref="svg" id="drawing").svg-container
             defs
                 linearGradient#outOfRangeLeft(x1='0%', y1='0%', x2='100%', y2='0%')
@@ -25,9 +24,9 @@
               tspan g
             text(:x="`${parseFloat(layouts[2].x) - 2}%`" y="65")
               tspan {{max}} 
-              tspan.cals &#xF238
+              tspan g
             
-            svg-circle(ref="target" :target="target" :svg="svg" :value="value.value" :max="getMaxWidth" :bounds="getRefs" :al="al")
+            svg-circle(ref="target" :target="target" :value="value.value" :bounds="getRefs" @move="targetMoved")
 </template>
 
 <script>
@@ -38,85 +37,104 @@ export default {
   components: {
     SvgCircle
   },
-  mounted() {
-    // window.onresize = debounce(this.updateChartDimensions, 200)
-    // let { width, height } = this.getChartDimensions()
-    // this.draw = SVG('drawing')
-    //   .toggleClass('svg-container')
-    //   .width(width)
-    //   .height(height)
-    // console.log(draw.height())
-    // console.log(draw.width())
-    // var linear = draw.gradient('linear', function(stop) {
-    //   stop.at(0, '#d2ffd8')
-    //   stop.at(0.25, '#caffd1')
-    //   stop.at(0.5, '#c1ffca')
-    //   stop.at(0.75, '#b8ffc3')
-    //   stop.at(1, '#afffbc')
-    // })
-    // // console.log(draw.width())
-    // // console.log(draw.height())
-    // this.rect = draw.rect(300, 10).fill(linear)
-    //   .animate({ ease: '>', duration: '1.5s' })
-    //   .plot([[100, 0], [50, 500], [100, 800], [300, 800], [150, 500], [700, 0]])
-    //   .animate({ ease: '>', duration: '1.5s' })
-    //   .plot([[0, 0], [50, 500], [0, 800], [200, 800], [250, 500], [800, 0]])
-  },
+  mounted() {},
   props: {
-    min: String,
-    max: String,
+    min: Number,
+    max: Number,
+    limitMin: Number,
+    limitMax: Number,
     value: Object
   },
   computed: {
-    target() {
-      return {
-        cx: `${parseFloat(this.layouts[0].width) +
-          parseFloat(this.layouts[1].x) / 2}%`,
-        cy: 35,
-        r: 15
-      }
-    },
     layouts() {
+      let leftWidth = ((this.min - this.limitMin) / this.limitMax) * 100
+      let middleWidth = ((this.max - this.min) / this.limitMax) * 100
+      let rightWidth = ((this.limitMax - this.max) / this.limitMax) * 100
+
       return [
         {
           ref: 'left',
-          width: '33%',
+          width: `${leftWidth}%`,
           x: 0,
           fill: 'url(#outOfRangeLeft)'
         },
         {
           ref: 'middle',
-          width: '27%',
-          x: '33%',
+          width: `${middleWidth}%`,
+          x: `${leftWidth}%`,
           fill: 'url(#inRange)'
         },
         {
           ref: 'right',
-          width: '40%',
-          x: '60%',
+          width: `${rightWidth}%`,
+          x: `${leftWidth + middleWidth}%`,
           fill: 'url(#outOfRangeRight)'
         }
       ]
     }
   },
+  created() {
+    this.target.cx = `${this.valueToPercentage() * 100}%`
+  },
   data() {
     return {
-      draw: null,
-      al: null
+      target: {
+        cx: 0,
+        cy: 35,
+        r: 15
+      }
     }
   },
   methods: {
-    aler() {
-      this.al = new Date()
+    valueToPercentage() {
+      console.log(this)
+      return this.value.value / (this.limitMax - this.limitMin)
+    },
+    percentageToValue() {
+      return (
+        (parseFloat(this.target.cx) * (this.limitMax - this.limitMin)) / 100
+      )
+    },
+    targetMoved(deltaX) {
+      let bounds = {
+        left: {
+          left: this.$refs.left[0].getBoundingClientRect().left,
+          right: this.$refs.left[0].getBoundingClientRect().right
+        },
+        middle: {
+          left: this.$refs.middle[0].getBoundingClientRect().left,
+          right: this.$refs.middle[0].getBoundingClientRect().right
+        },
+        right: {
+          left: this.$refs.right[0].getBoundingClientRect().left,
+          right: this.$refs.right[0].getBoundingClientRect().right
+        },
+        outer: {
+          left: this.$refs.outer.getBoundingClientRect().left,
+          right: this.$refs.outer.getBoundingClientRect().right
+        }
+      }
+      let oldCx = parseFloat(this.target.cx) / 100
+      console.log(oldCx)
+      let widthInPx = bounds.outer.right - bounds.outer.left
+      console.log({ deltaX })
+      console.log({ widthInPx })
+
+      let deltaCx = deltaX / widthInPx
+      console.log(deltaCx)
+      let cx = oldCx + deltaCx
+
+      this.target.cx = `${cx * 100}%`
+
+      console.log(cx)
+
+      this.$emit('input', { value: this.percentageToValue() })
     },
     getRefs() {
       return this.$refs
     },
     getMaxWidth() {
       return this.$refs.outer.offsetWidth
-    },
-    svg() {
-      return this.$refs.svg
     }
   },
   beforeDestroy() {
