@@ -13,7 +13,6 @@ class Nutrient extends Model {
 
             valueKcal: this.number(0),
 
-            valueKcal: this.number(0),
         }
     }
 

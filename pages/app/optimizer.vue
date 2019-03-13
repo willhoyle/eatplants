@@ -65,12 +65,6 @@ export default {
       this.$delete(this.foods, index)
     }
   },
-  beforeMount() {
-    // this.fuse = new Fuse(Food.all(), {
-    //   keys: ['longDescription', 'shortDescription'],
-    //   shouldSort: true
-    // })
-  },
   async fetch({ $axios }) {
     // return Promise.all([
     //   $axios

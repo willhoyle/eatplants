@@ -126,8 +126,6 @@ export default {
 
       this.target.cx = `${cx * 100}%`
 
-      console.log(cx)
-
       this.$emit('input', { value: this.percentageToValue() })
     },
     getRefs() {

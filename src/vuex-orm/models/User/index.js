@@ -17,11 +17,9 @@ class User extends Model {
                 }
                 return new Date(value)
             }),
-            active: this.boolean(false),
-            profile: this.attr({
-                firstName: '',
-                lastName: ''
-            })
+            active: this.boolean(true),
+
+            name: this.string('')
 
         }
     }

@@ -3,11 +3,17 @@ let Schema = mongoose.Schema;
 
 
 const passwordPlugin = require('./mongoose-password-plugin.js')
+require('mongoose-type-email')
 
 const UserSchema = new Schema({
-    email: String,
-    emailVerified: Boolean,
-    emailVerifiedDate: { type: Date, default: null }
+    email: { type: mongoose.SchemaTypes.Email, required: true },
+    emailVerified: { type: Boolean, default: false },
+    emailVerifiedDate: { type: Date, default: null },
+    active: { type: Boolean, default: true },
+
+    name: { type: String, default: '' },
+
+
 },
     { timestamps: true })
 
@@ -26,7 +32,7 @@ UserSchema.plugin(mongooseHidden, {
 
 const UserModel = mongoose.model("User", UserSchema, 'user')
 
-
+const { mongoose_defaults: user_settings_defaults } = require('../../data/nutrients.js')
 // each nutrient has a min, max, and whether it is active.
 // when it's not active, it won't be included in the optimizer
 const UserSettingSchema = new Schema({
@@ -34,110 +40,7 @@ const UserSettingSchema = new Schema({
 
     name: String,
 
-    // vitamins
-    b1: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    b2: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-
-    },
-    b3: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    b5: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    b6: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    choline: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    folate: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    vitaminA: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    vitaminC: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    vitaminE: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    vitaminK: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-
-    // minerals
-    calcium: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    copper: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    iron: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    magnesium: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    manganese: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    phosphorus: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    potassium: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    selenium: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    },
-    zinc: {
-        min: { type: Number, min: 0, default: 0 },
-        max: { type: Number, min: 0, default: 0 },
-        active: { type: Boolean, default: true }
-    }
+    ...user_settings_defaults
 
 },
     { timestamps: true }

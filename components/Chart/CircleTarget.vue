@@ -29,39 +29,31 @@ export default {
   mounted() {
     let vm = this
     let group = SVG(this.$refs.group)
-    console.log(group)
     group.draggable()
     group.on('dragstart', function(event) {
       // event.detail.event hold the given data explained below
       // this == rect
     })
-    let constraints = { x: 100, y: 0, x1: 400, y1: 0 }
+    const constraints = this.bounds().middle[0]
+    console.log({ constraints })
     group.on('dragmove', function(e) {
       const { handler, box } = e.detail
       e.preventDefault()
 
       let { x, y } = box
-
+      console.log({ x, y, constraints })
       // In case your dragged element is a nested element,
       // you are better off using the rbox() instead of bbox()
 
       if (x < constraints.x) {
-        x = constraints.x
-      }
-
-      if (y < constraints.y) {
-        y = constraints.y
+        x = '15%'
       }
 
       if (box.x2 > constraints.x2) {
-        x = constraints.x2
+        x = '20%'
       }
 
-      if (box.y2 > constraints.y2) {
-        y = constraints.y2
-      }
-
-      handler.move(x, y)
+      handler.move(x, 0)
     })
     group.on('dragend', function(event) {
       // event.detail.event hold the given data explained below
