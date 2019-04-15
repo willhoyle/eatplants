@@ -1,0 +1,5 @@
+.git
+mongo
+node_modules
+*Dockerfile*
+*docker_compose*

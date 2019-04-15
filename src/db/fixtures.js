@@ -150,145 +150,38 @@ const executeFixtures = async () => {
             }, Promise.resolve())
         })
 
-    let kCalDefinition = await NutrientDefinition.findOne({ name: "Energy" }).exec()
-    let nutrients = await Nutrient.find({}).exec()
-    let kCalNutrients = {}
+    // node crashes if we don't do it in batches
+    let sliceSize = 100000
+    let numSlices = Math.floor((await Nutrient.countDocuments().exec()) / sliceSize)
+    for (let slice = 0; slice < numSlices + 1; slice++) {
+        console.log("starting slice: ", slice, "of ", numSlices, "slices");
 
-    nutrients.forEach((n) => {
-        // console.log(n);
-        // console.log(kCalDefinition);
-        if (String(n.nutrientDefinitionId) === String(kCalDefinition._id)) {
-            kCalNutrients[n.foodId] = n.value
-        }
-    })
-    await nutrients.reduce((p, nutrient) => {
-        return p.then(async () => {
-            if (nutrient.value <= 0) {
-                return Promise.resolve()
-            }
+        let kCalDefinition = await NutrientDefinition.findOne({ name: "Energy" }).exec()
+        let nutrients = await Nutrient.find({}).skip(slice * sliceSize).limit(sliceSize).exec()
+        let kCalNutrients = {}
 
-            let kCalNutrient = kCalNutrients[nutrient.foodId]
-            if (!kCalNutrient || kCalNutrient.value <= 0) {
-                return Promise.resolve()
+        nutrients.forEach((n) => {
+            // console.log(n);
+            // console.log(kCalDefinition);
+            if (String(n.nutrientDefinitionId) === String(kCalDefinition._id)) {
+                kCalNutrients[n.foodId] = n.value
             }
-            nutrient.valueKcal = (100.0 / kCalNutrient) * nutrient.value // now valueKcal is on a per 100kcal basis
-            return nutrient.save()
         })
-    }, Promise.resolve())
+        await nutrients.reduce((p, nutrient) => {
+            return p.then(async () => {
+                if (nutrient.value <= 0) {
+                    return
+                }
 
-    // we can have different defaults depending on the info people give us
-    // man, woman, kid?, pregnant. have to do research on 
-    const defaultNutrientProfiles = [
-        {
-            id: "man", // this is useful to search for profiles
-            displayName: "Man", // what will actually be displayed in the UI
-            b1: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            b2: {
-                min: 0,
-                max: 0,
-                active: true
-
-            },
-            b3: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            b5: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            b6: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            choline: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            folate: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            vitaminA: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            vitaminC: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            vitaminE: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            vitaminK: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-
-            // minerals
-            calcium: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            copper: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            iron: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            magnesium: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            manganese: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            phosphorus: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            potassium: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            selenium: {
-                min: 0,
-                max: 0,
-                active: true
-            },
-            zinc: {
-                min: 0,
-                max: 0,
-                active: true
-            }
-
-
-        }
-    ]
+                let kCalNutrient = kCalNutrients[nutrient.foodId]
+                if (!kCalNutrient || kCalNutrient.value <= 0) {
+                    return
+                }
+                nutrient.valueKcal = (100.0 / kCalNutrient) * nutrient.value // now valueKcal is on a per 100kcal basis
+                return nutrient.save()
+            })
+        }, Promise.resolve())
+    }
 }
 
 // executeFixtures()

@@ -32,7 +32,7 @@ UserSchema.plugin(mongooseHidden, {
 
 const UserModel = mongoose.model("User", UserSchema, 'user')
 
-const { mongoose_defaults: user_settings_defaults } = require('../../data/nutrients.js')
+const { get_default } = require('../../data/nutrients.js')
 // each nutrient has a min, max, and whether it is active.
 // when it's not active, it won't be included in the optimizer
 const UserSettingSchema = new Schema({
@@ -40,7 +40,10 @@ const UserSettingSchema = new Schema({
 
     name: String,
 
-    ...user_settings_defaults
+    // you can have advanced settings where the equation tries a second round
+    round: { type: Number, default: 1 },
+
+    ...get_default("general")
 
 },
     { timestamps: true }

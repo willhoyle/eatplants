@@ -29,6 +29,7 @@
     "express-restify-mongoose": "^5.0.0",
     "fuse.js": "^3.4.2",
     "lru-cache": "^5.1.1",
+    "markdown-it": "^8.4.2",
     "mongoose": "^5.4.11",
     "mongoose-hidden": "^1.6.0",
     "mongoose-type-email": "^1.0.10",

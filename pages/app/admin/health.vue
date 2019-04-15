@@ -1,5 +1,17 @@
-<template/>
+<template lang="pug">
+    div
+</template>
 
 <script>
-export default {}
+export default {
+  mounted() {},
+  data() {
+    return {}
+  },
+  computed: {},
+  methods: {}
+}
 </script>
+
+<style lang="css">
+</style>

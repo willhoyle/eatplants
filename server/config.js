@@ -15,7 +15,7 @@ var config = convict({
     ip: {
         doc: "The IP address to bind.",
         format: "ipaddress",
-        default: "127.0.0.1",
+        default: "0.0.0.0",
         env: "IP_ADDRESS",
     },
     port: {
@@ -29,7 +29,7 @@ var config = convict({
         uri: {
             doc: "Database host name/IP",
             format: '*',
-            default: 'mongodb://localhost:27017/pureplantgains'
+            default: 'mongodb://mongo:27017/pureplantgains'
         },
         name: {
             doc: "Database name",

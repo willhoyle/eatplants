@@ -13,14 +13,14 @@ const { initCache } = require('../src/cache')
 
 app.set('port', port)
 
-require("../src/db/fixtures.js")
-
+const executeFixtures = require("../src/db/fixtures.js")
 
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
 
 async function start() {
+  // await executeFixtures()
   // Init Nuxt.js
   const nuxt = new Nuxt(config)
 

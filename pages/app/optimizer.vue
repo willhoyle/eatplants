@@ -12,11 +12,14 @@
         fluid-chart
       div(v-else-if="chartType == 'sliders' ").column.is-12
         food-sliders(:foods="foods" @remove="removeFood")
+      div(v-else-if="chartType == 'text' ").column.is-12
+        text-items(:foods="foods" @remove="removeFood")
 </template>
 
 <script>
 import FluidChart from '~/components/Chart/Chart.vue'
 import FoodSliders from '~/components/Chart/FoodSliders.vue'
+import TextItems from '~/components/Chart/TextItems.vue'
 
 import Food from '~/src/vuex-orm/models/Food'
 import Nutrient from '~/src/vuex-orm/models/Nutrient'
@@ -24,11 +27,11 @@ import Nutrient from '~/src/vuex-orm/models/Nutrient'
 import Fuse from 'fuse.js'
 
 export default {
-  components: { FluidChart, FoodSliders },
+  components: { FluidChart, FoodSliders, TextItems },
   data() {
     return {
       // which chart type should we show to the user
-      chartType: 'sliders',
+      chartType: 'text',
 
       searchKey: '',
       fuse: null,
