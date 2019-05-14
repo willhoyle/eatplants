@@ -2,7 +2,8 @@ import { Database } from '@vuex-orm/core'
 const database = new Database()
 
 import User from './models/User'
-database.register(User)
+import user from './models/User/user'
+database.register(User, user)
 
 import Food from './models/Food'
 database.register(Food)

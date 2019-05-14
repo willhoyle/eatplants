@@ -1,7 +1,9 @@
 @import "~bulma/sass/utilities/_all";
 
-$primary: #10941B;
-$primary-invert: findColorInvert($primary);
+$primary: #e3e3e3;
+
+// $primary-invert: findColorInvert($primary);
+$primary-invert: rgba(0, 0, 0, 0.6);
 
 $colors: (
     "white": ($white, $black),
@@ -70,8 +72,27 @@ $spacers: map-merge((0: 0, 1: $spacer * 0.25, 2: $spacer * 0.5, 3: $spacer, 4: $
     }
 }
 
+.slider-container {
+    width: 100%;
+    height: 25px;
+    background-color: $primary;
+    position: relative;
+    .success-zone {
+        background-color: rgba(131, 165, 127, 0.507);
+        height: 25px;
+    }
+  }
 
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
 @import "~bulma-slider/dist/css/bulma-slider.sass";
+
+body {
+    background-color: #f7f7f7;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f4f4f4' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.pointer {
+    cursor: pointer;
+}

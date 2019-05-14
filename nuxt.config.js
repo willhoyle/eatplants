@@ -63,7 +63,8 @@ module.exports = {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    browserBaseURL: 'http://localhost:3333'
+    browserBaseURL: 'http://localhost:3333',
+    baseURL: 'http://localhost:3333'
   },
 
   /* nuxt-buefy module configuration */

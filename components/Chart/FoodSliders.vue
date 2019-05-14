@@ -8,7 +8,7 @@
                             .columns.is-gapless
                                 .column.is-12
                                     div.is-centered 
-                                        button(@click="remove({food, index})").button.is-small.is-danger.mr-2
+                                        button(@click="remove({food, index})").button.is-small.is-primary.mr-2
                                             b-icon(icon="close")
                                         | {{food.longDescription}}
                                         svg-slider(:value="values[index]" @input="values[index] = $event" :limitMin="0" :min="100" :max="400" :limitMax="500")

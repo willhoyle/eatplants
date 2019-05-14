@@ -1,6 +1,11 @@
+var uuidv4 = require('uuid/v4');
+
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
+mongoose.plugin(require("./plugins/uuid"))
+
+var UUID = mongoose.Types.UUID;
 
 const passwordPlugin = require('./mongoose-password-plugin.js')
 require('mongoose-type-email')
@@ -36,7 +41,7 @@ const { get_default } = require('../../data/nutrients.js')
 // each nutrient has a min, max, and whether it is active.
 // when it's not active, it won't be included in the optimizer
 const UserSettingSchema = new Schema({
-    userId: { type: Schema.Types.ObjectId, ref: "User" },
+    userId: { type: UUID, ref: "User" },
 
     name: String,
 
@@ -52,11 +57,20 @@ const UserSettingSchema = new Schema({
 const UserSettingModel = mongoose.model("UserSetting", UserSettingSchema, 'usersetting')
 
 
-
+const RecipeSchema = new Schema({
+    name: { type: String },
+    description: { type: String },
+    foodIds: [
+        {
+            foodId: { type: UUID, ref: 'Food' },
+            value: { type: Number, default: 0 } // amount per 100g
+        }
+    ]
+}, { timestamps: true })
 
 const FoodSchema = new Schema({
     importedId: String,
-    foodGroupId: { type: Schema.Types.ObjectId, ref: "FoodGroup" },
+    foodGroupId: { type: UUID, ref: "FoodGroup" },
     longDescription: String,
     shortDescription: String,
     commonName: String
@@ -84,8 +98,8 @@ const FoodGroupModel = mongoose.model("FoodGroup", FoodGroupSchema, 'foodgroup')
 const NutrientSchema = new Schema({
     importedNutrientDefinitionId: String,
     importedFoodId: String,
-    foodId: { type: Schema.Types.ObjectId, ref: "Food" },
-    nutrientDefinitionId: { type: Schema.Types.ObjectId, ref: "NutrientDefinition" },
+    foodId: { type: UUID, ref: "Food" },
+    nutrientDefinitionId: { type: UUID, ref: "NutrientDefinition" },
     value: Number, // per 100g
     valueKcal: Number // per 100kcal
 },
@@ -109,11 +123,19 @@ const NutrientDefinitionSchema = new Schema({
 const NutrientDefinitionModel = mongoose.model("NutrientDefinition", NutrientDefinitionSchema, 'nutrientdefinition')
 
 
+const OptimizerItemSchema = new Schema({
+    itemId: { type: UUID, ref: "Food" },
+    value: { type: Number, default: 0 }, // in 100g
+    min: { type: Number, default: 0 },
+    max: { type: Number, default: 0 }
+
+}, { timestamps: true })
 
 // collection is used here to mean a collection of foods
 const CollectionSchema = new Schema({
     name: String,
-    userId: { type: Schema.Types.ObjectId, ref: "User" }
+    userId: { type: UUID, ref: "User" },
+    foodId: { type: Array, default: [] }
 },
     { timestamps: true }
 )

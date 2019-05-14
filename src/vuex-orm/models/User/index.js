@@ -19,13 +19,16 @@ class User extends Model {
             }),
             active: this.boolean(true),
 
-            name: this.string('')
+            firstName: this.string(''),
+            lastName: this.string(''),
+
+            roles: this.attr([])
 
         }
     }
 
     get fullName() {
-        return `${this.profile.firstName} ${this.profile.lastName}`
+        return `${this.firstName} ${this.lastName}`
     }
 
 }

@@ -54,7 +54,7 @@ export default {
   computed: {},
   methods: {
     fetchItems() {
-      this.$axios
+      return this.$axios
         .get('/api/v1/search', { params: { t: this.searchKey } })
         .then(({ data }) => {
           Food.insertOrUpdate({ data: data.results })
@@ -68,7 +68,12 @@ export default {
       this.$delete(this.foods, index)
     }
   },
-  async fetch({ $axios }) {
+  async asyncData({ $axios }) {
+    let searchKey = 'q'
+    let { data } = await $axios.get('/api/v1/search', {
+      params: { t: searchKey }
+    })
+    return { foods: [data.results[0], data.results[1], data.results[2]] }
     // return Promise.all([
     //   $axios
     //     .get('/api/v1/Food', {

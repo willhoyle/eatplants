@@ -7,10 +7,12 @@
                         template(v-for="(food, index) in foods")
                             .columns.is-gapless.is-multiline
                                 .column.is-12
-                                    div.is-centered 
-                                        button(@click="remove({food, index})").button.is-small.is-danger.mr-2
-                                            b-icon(icon="close")
-                                        | {{food.longDescription}}
+                                  .columns.is-gapless.is-multiline
+                                    .column
+                                      | {{food.longDescription}}
+                                    div(style="width: 40px;").column.is-narrow.has-text-right
+                                      button(@click="remove({food, index})").button.is-small.is-primary
+                                        b-icon(icon="close")
                                 .column.is-12
                                     text-item(:item="food")
 
