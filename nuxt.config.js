@@ -1,5 +1,6 @@
 const pkg = require('./package')
 
+const path = require('path')
 
 module.exports = {
   mode: 'universal',
@@ -28,6 +29,11 @@ module.exports = {
         rel: 'icon',
         type: 'image/x-icon',
         href: '/favicon.ico'
+      },
+      {
+        rel: 'stylesheet',
+        type: 'image/x-icon',
+        href: 'https://fonts.googleapis.com/css?family=Open+Sans&display=swap'
       }
     ]
   },
@@ -47,7 +53,10 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/roles.js'],
+  plugins: [
+    '~/plugins/roles.js',
+    '~/plugins/global.js'
+  ],
 
   /*
    ** Nuxt.js modules
@@ -76,6 +85,11 @@ module.exports = {
    ** Build configuration
    */
   build: {
-
+    /*
+    ** You can extend webpack config here
+    */
+    extend(config, ctx) {
+      config.resolve.alias['~models'] = path.join(__dirname, "./src/vuex-orm/models") // doesn't work
+    }
   }
 }

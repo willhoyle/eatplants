@@ -1,20 +1,37 @@
 <template lang="pug">
   .container-fluid
     .container.pt-3
-      .columns
-        .column.content
-          router-link(to='/')
-            h1.title food optimizer
+      .columns.is-mobile
+        .column
+          router-link(to='/').is-inline-block
+            .title.is-size-3 food optimizer
+          .is-inline-block.ml-5
+            router-link(to="/app/recipes").is-size-5.has-text-grey Recipes
+          .is-inline-block.ml-4
+            router-link(to="/app/guides").is-size-5.has-text-grey.has-text-right Guide
+          
         .column.has-text-right
-          b-dropdown(v-if='!loggedIn', position='is-bottom-left')
-              span.pointer.is-size-4(slot='trigger') 
-                span Login or Signup
-              b-dropdown-item(custom='', paddingless='')
-                signup-login(@login='', @register='')
-          div(v-else @click="logout")
-            span.pointer.is-size-4
-                span Logout
+          .is-inline-block
+            b-dropdown(v-if='!loggedIn', position='is-bottom-left' )
+                span.pointer.is-size-4(slot='trigger') 
+                  span Login or Signup
+                b-dropdown-item(custom='', paddingless='')
+                  signup-login(@login='', @register='')
+            div(v-else @click="logout")
+              span.pointer.is-size-4
+                  span Logout
     nuxt
+
+    footer.footer
+      .container
+        .columns.is-multiline.has-text-centered 
+          .column.is-4
+            | Project by 
+            a(href="https://williamhoyle.ca") William Hoyle
+          .column.is-4
+            | Built with Buefy
+          .column.is-4
+            | food optimizer 
   //- div#app
   //-   div.container
   //-     nav.navbar.is-transparent

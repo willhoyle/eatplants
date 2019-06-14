@@ -1,3 +1,4 @@
+require = require("esm")(module/*, options*/)
 const express = require('express')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
@@ -24,16 +25,15 @@ async function start() {
   // Init Nuxt.js
   const nuxt = new Nuxt(config)
 
-  // Build only in dev mode
+  // Build only in dev mode  
   if (config.dev) {
     const builder = new Builder(nuxt)
     await builder.build()
   }
-
   await initDB()
   await initCache()
 
-  app.use("/api", require("../src/api"))
+  app.use("/api", require("../src/api/http"))
 
   // Give nuxt middleware to express
   app.use(nuxt.render)

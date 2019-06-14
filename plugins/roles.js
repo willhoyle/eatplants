@@ -6,7 +6,6 @@ Vue.mixin({
   computed: {
     user() {
       let user = this.$store.getters['entities/User/user']
-      console.log(user);
       return user
     },
     loggedIn() {

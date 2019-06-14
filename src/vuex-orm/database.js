@@ -11,6 +11,9 @@ database.register(Food)
 import Nutrient from './models/Nutrient'
 database.register(Nutrient)
 
+import Recipe from './models/Recipe'
+database.register(Recipe)
+
 
 
 export default database

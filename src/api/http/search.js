@@ -1,7 +1,7 @@
 const router = require("express").Router()
 
-const { Food } = require("../db/mongoose")
-const { search } = require("../cache")
+const { Food } = require("../../db/mongoose")
+const { search } = require("../../cache")
 
 router.get("/search", async (req, res, next) => {
     let searchTerm = req.query.t

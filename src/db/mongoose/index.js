@@ -1,3 +1,4 @@
+require = require("esm")(module/*, options*/)
 var uuidv4 = require('uuid/v4');
 
 let mongoose = require('mongoose');
@@ -148,6 +149,68 @@ let uri = require("../../../server/config.js").get("db.uri")
 const initDB = () => {
     return mongoose.connect(uri, { useNewUrlParser: true })
 }
+
+var eventSchema = new Schema({ message: String },
+    { discriminatorKey: 'kind', _id: false });
+
+var batchSchema = new Schema({ events: [eventSchema] });
+
+// `batchSchema.path('events')` gets the mongoose `DocumentArray`
+var docArray = batchSchema.path('events');
+
+// The `events` array can contain 2 different types of events, a
+// 'clicked' event that requires an element id that was clicked...
+var clickedSchema = new Schema({
+    element: {
+        type: String,
+        required: true
+    }
+}, { _id: false });
+// Make sure to attach any hooks to `eventSchema` and `clickedSchema`
+// **before** calling `discriminator()`.
+var Clicked = docArray.discriminator('Clicked', clickedSchema);
+
+// ... and a 'purchased' event that requires the product that was purchased.
+var Purchased = docArray.discriminator('Purchased', new Schema({
+    product: {
+        type: String,
+        required: true
+    }
+}, { _id: false }));
+
+var Batch = mongoose.model('EventBatch', batchSchema);
+
+// Create a new batch of events with different kinds
+var batch = {
+    events: [
+        { kind: 'Clicked', element: '#hero', message: 'hello' },
+        { kind: 'Purchased', product: 'action-figure-1', message: 'world' }
+    ]
+};
+
+Batch.create(batch).
+    then(function (doc) {
+        // assert.equal(doc.events.length, 2);
+
+        // assert.equal(doc.events[0].element, '#hero');
+        // assert.equal(doc.events[0].message, 'hello');
+        // assert.ok(doc.events[0] instanceof Clicked);
+
+        // assert.equal(doc.events[1].product, 'action-figure-1');
+        // assert.equal(doc.events[1].message, 'world');
+        // assert.ok(doc.events[1] instanceof Purchased);
+
+        doc.events.push({ kind: 'Purchased', product: 'action-figure-2' });
+        return doc.save();
+    }).
+    then(function (doc) {
+        // assert.equal(doc.events.length, 3);
+
+        // assert.equal(doc.events[2].product, 'action-figure-2');
+        // assert.ok(doc.events[2] instanceof Purchased);
+
+        // done();
+    })
 
 
 module.exports =

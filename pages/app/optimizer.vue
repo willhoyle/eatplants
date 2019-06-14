@@ -1,19 +1,17 @@
 <template lang="pug">
   div.container-fluid
-    div.columns.is-multiline.is-centered
-        div.column.is-6
-            b-autocomplete(v-model="searchKey" :data="results" @select="addFood" rounded placeholder="Search food" size="is-medium" icon="magnify")
-              template(slot-scope="props")
-                  div.media-content {{props.option.longDescription}}
+    div.columns.is-multiline
+      .column.is-6
+        .columns.is-multiline.is-centered.my-3
+            .column.is-6
+              b-autocomplete(v-model="searchKey" :data="results" @select="addFood" rounded placeholder="Add food or recipe..." size="is-medium" icon="magnify")
+                template(slot-scope="props")
+                    div.media-content {{props.option.longDescription}}
 
-              template(slot="empty") No results found
-    div.columns
-      div(v-if="chartType == 'fluid-chart' ").column.is-12
-        fluid-chart
-      div(v-else-if="chartType == 'sliders' ").column.is-12
-        food-sliders(:foods="foods" @remove="removeFood")
-      div(v-else-if="chartType == 'text' ").column.is-12
+                template(slot="empty") No results found
         text-items(:foods="foods" @remove="removeFood")
+      .column.is-6
+        
 </template>
 
 <script>

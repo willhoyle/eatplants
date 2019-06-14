@@ -18,14 +18,26 @@ let options = {
 }
 
 
-const initCache = async () => {
+
+import { frontpageFoods } from '../data/frontpage'
+let frontpageCached = false
+let foodDocs = [];
+export const fetchFrontpageFoodDocs = async () => {
+    if (!frontpageCached) {
+        foodDocs = await Food.find({ longDescription: { $in: frontpageFoods } })
+    }
+
+    return foodDocs
+}
+
+
+export const initCache = async () => {
     food = await Food.find({}).exec()
     fuse = new Fuse(food, options)
+
+
 }
 
-const search = (searchTerm) => {
+export const search = (searchTerm) => {
     return fuse.search(searchTerm)
 }
-
-
-module.exports = { initCache, search }

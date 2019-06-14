@@ -1,10 +1,10 @@
 <template lang="pug">
-div.has-text-left
-  b-tabs(v-model='loginTabs', expanded)
+div(style="min-width: 400px;").has-text-left
+  b-tabs(v-model='loginTabs', expanded is-boxed)
     b-tab-item(label='Sign in')
       .columns
         .column
-            section.modal-card-body
+            section
               b-field(label='Email')
                 b-input(v-model='email', type='email', placeholder='Your email', autofocus, icon='email', required).
                   
@@ -20,7 +20,7 @@ div.has-text-left
     b-tab-item(label='Register')
       .columns
         .column
-          section.modal-card-body
+          section
             b-field(label='Email')
               b-input(v-model='email', type='email', placeholder='Your email', autofocus, icon='email', required).
                 

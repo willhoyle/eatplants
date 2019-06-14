@@ -1,5 +1,7 @@
 import { Model } from '@vuex-orm/core'
 
+import { objId, date } from '../util'
+
 class Food extends Model {
     static fields() {
         return {
@@ -7,7 +9,10 @@ class Food extends Model {
             foodGroupId: this.string(''),
             longDescription: this.string(''),
             shortDescription: this.string(''),
-            commonName: this.string('')
+            commonName: this.string(''),
+
+            createdAt: date(),
+            updatedAt: date()
         }
     }
 

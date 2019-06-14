@@ -22,6 +22,10 @@ class User extends Model {
             firstName: this.string(''),
             lastName: this.string(''),
 
+            public: this.attr({
+                name: ''
+            }),
+
             roles: this.attr([])
 
         }

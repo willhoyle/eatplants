@@ -1,9 +1,11 @@
 @import "~bulma/sass/utilities/_all";
 
-$primary: #e3e3e3;
+$primary: rgba(131, 165, 127, 0.80);
 
 // $primary-invert: findColorInvert($primary);
-$primary-invert: rgba(0, 0, 0, 0.6);
+$primary-invert: rgba(0, 0, 0, 0.8);
+
+$silver: #e3e3e3;
 
 $colors: (
     "white": ($white, $black),
@@ -14,7 +16,8 @@ $colors: (
     "info": ($info, $info-invert),
     "success": ($success, $success-invert),
     "warning": ($warning, $warning-invert),
-    "danger": ($danger, $danger-invert)
+    "danger": ($danger, $danger-invert),
+    "silver": ($silver, findColorInvert($silver))
 );
 
 // links
@@ -23,7 +26,9 @@ $link-invert: $primary-invert;
 $link-focus-border: $primary;
 
 // tabs
-$tabs-border-bottom-color: transparent;
+// $tabs-border-bottom-color: $primary;
+// $tabs-border-bottom-color: transparent;
+// $tabs-link-active-color: black;
 
 // navbar
 $navbar-height: 6rem;
@@ -72,27 +77,99 @@ $spacers: map-merge((0: 0, 1: $spacer * 0.25, 2: $spacer * 0.5, 3: $spacer, 4: $
     }
 }
 
+$slider-border-radius: 2px;
+
+.nutrient-bar {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: $silver;
+    border-radius: $slider-border-radius;
+  }
+  
+  .success-bar {
+    position: absolute;
+    width: 50%;
+    height: 10px;
+    // background-color: grey;
+    border-radius: $slider-border-radius;
+  }
+
 .slider-container {
     width: 100%;
     height: 25px;
-    background-color: $primary;
+    background-color: $silver;
     position: relative;
+    border-radius: $slider-border-radius;
+    // box-shadow: 1px 3px 3px rgba(10, 10, 10, 0.1);
     .success-zone {
         background-color: rgba(131, 165, 127, 0.507);
         height: 25px;
+        position: absolute;
+        border-radius: $slider-border-radius;
+        // box-shadow: 2px 2px 7px rgba(10, 10, 10, 0.2);
     }
-  }
+    .success-zone.slider-tight {
+        height: 10px;
+        
+    }
+    .slider {
+        position: absolute;
+        height: 33px;
+        top: -4px;
+        width: 20px;
+        border: 1px rgb(197, 197, 197) solid;
+        border-radius: $slider-border-radius;
+        background-color: rgba(245, 245, 245, 0.514);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .slider.slider-tight {
+        height: 16px;
+        top: -3px
+    }
+}
 
+.slider-container.slider-tight {
+    height: 10px;
+}
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
 @import "~bulma-slider/dist/css/bulma-slider.sass";
 
 body {
+    font-family: 'Open Sans', sans-serif;
     background-color: #f7f7f7;
     background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f4f4f4' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 }
+// body {
+//     background-color: #dbffdd;
+// background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23dbffdd'/%3E%3Cstop offset='1' stop-color='%23a6b0a6'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23a5c9a9' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23a5c9a9' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2'%3E%3Cstop offset='0' stop-color='%23a5c9a9' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23a5c9a9' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
+// background-attachment: fixed;
+// background-size: cover;
+//   }
+
 
 .pointer {
     cursor: pointer;
+}
+
+.icon.is-xlarge {
+    height: 6rem;
+    width: 6rem;
+}
+
+.mdi.mdi-64px:before {
+    font-size: 64px !important;
+}
+
+.columns.is-gapless:not(:last-child) {
+    margin-bottom: 0px;
+}
+
+.dropdown {
+    vertical-align: bottom;
 }

@@ -1,9 +1,9 @@
 const restify = require('express-restify-mongoose')
 const router = require("express").Router()
 
-const { Nutrient } = require("../db/mongoose")
+const { Food } = require("../../db/mongoose")
 
-restify.serve(router, Nutrient, {
+restify.serve(router, Food, {
     prefix: '',
     contextFilter: (model, req, done) => {
         done(model.find({}, null, { user: { roles: ["admin"], companyId: "123" } }))

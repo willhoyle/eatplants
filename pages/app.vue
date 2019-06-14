@@ -1,31 +1,20 @@
-<template>
-  <div class="container is-fluid">
-    <div class="columns">
-      <div
+<template lang="pug">
+  .container.is-fluid
+    .columns
+      div(
+        v-if="loggedIn"
         class="column is-offset-1-mobile is-10-mobile is-3-tablet is-4-desktop is-3-widescreen is-2-fullhd is-narrow"
         style="width: 200px;"
-      >
-        <aside class="menu">
-          <template v-for="menu in menus">
-            <template v-if="menu.roles ? hasRoles(menu.roles) : true">
-              <p :key="menu.path" class="menu-label">{{ menu.label }}</p>
-              <ul :key="menu.path" class="menu-list">
-                <li v-for="item in menu.items" :key="item.path">
-                  <nuxt-link
-                    :to="item.path"
-                    :class="{'is-active': $route.path == item.path}"
-                  >{{ item.label }}</nuxt-link>
-                </li>
-              </ul>
-            </template>
-          </template>
-        </aside>
-      </div>
-      <div class="column">
-        <nuxt-child/>
-      </div>
-    </div>
-  </div>
+      )
+        aside.menu
+          template(v-for="menu in menus")
+            template(v-if="menu.roles ? hasRoles(menu.roles) : true")
+              p.menu-label(:key='menu.path') {{ menu.label }}
+              ul.menu-list(:key='menu.path')
+                li(v-for='item in menu.items' :key='item.path')
+                  nuxt-link(:to='item.path' :class="{'is-active is-silver': $route.path == item.path}") {{ item.label }}
+      .column
+        nuxt-child
 </template>
 
 <script>
@@ -33,23 +22,24 @@ export default {
   data() {
     let menus = [
       {
-        items: [
-          { label: 'Optimizer', path: '/app/optimizer' },
-          { label: 'Nutrients', path: '/app/nutrients' }
-        ]
+        items: [{ label: 'Optimizer', path: '/app/optimizer' }]
       },
       {
-        label: 'Food Collections',
+        label: 'Food Recipes',
         items: [
-          { label: 'Search Collections', path: '/app/collections' },
-          { label: 'My Collections', path: '/app/my-collections' }
+          { label: 'Editor', path: '/app/editor' },
+          { label: 'Recipes', path: '/app/recipes' },
+          { label: 'Food', path: '/app/food' }
         ]
       },
       {
         label: 'Settings',
         items: [
-          { label: 'Macro/Micronutrients', path: '/app/config' },
-          { label: 'Account', path: '/app/account' }
+          {
+            label: 'Nutrient Profiles',
+            path: '/app/settings/configuration'
+          },
+          { label: 'Account', path: '/app/settings/account' }
         ]
       },
       {
@@ -60,7 +50,12 @@ export default {
       {
         label: 'Dev',
         roles: ['dev'],
-        items: [{ label: 'Health', path: '/app/admin/health' }]
+        items: [
+          { label: 'Servers', path: '/app/admin/servers' },
+          { label: 'Users', path: '/app/admin/users' },
+          { label: 'Groups', path: '/app/admin/groups' },
+          { label: 'Organizations', path: '/app/admin/organizations' }
+        ]
       }
     ]
     return {
