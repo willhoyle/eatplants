@@ -8,7 +8,7 @@ mongoose.plugin(require("./plugins/uuid"))
 
 var UUID = mongoose.Types.UUID;
 
-const passwordPlugin = require('./mongoose-password-plugin.js')
+const passwordPlugin = require('./plugins/mongoose-password-plugin.js')
 require('mongoose-type-email')
 
 const UserSchema = new Schema({

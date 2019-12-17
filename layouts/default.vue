@@ -4,7 +4,8 @@
       .columns.is-mobile
         .column
           router-link(to='/').is-inline-block
-            .title.is-size-3 food optimizer
+            .title
+              span.is-size-3 eat plants
           .is-inline-block.ml-5
             router-link(to="/app/recipes").is-size-5.has-text-grey Recipes
           .is-inline-block.ml-4
