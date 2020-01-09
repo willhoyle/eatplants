@@ -18,6 +18,11 @@ services:
      - "3333:3333"
     networks:
     - app-network
+  postgres:
+    volumes:
+      - ./postgres:/
+    networks:
+      - app-network
 networks:
   app-network:
     driver: bridge

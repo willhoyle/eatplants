@@ -9,7 +9,7 @@
           .is-inline-block.ml-5
             router-link(to="/app/recipes").is-size-5.has-text-grey Recipes
           .is-inline-block.ml-4
-            router-link(to="/app/guides").is-size-5.has-text-grey.has-text-right Guide
+            router-link(to="/app/guides").is-size-5.has-text-grey.has-text-right Guides
           
         .column.has-text-right
           .is-inline-block
@@ -32,7 +32,7 @@
           .column.is-4
             | Built with Buefy
           .column.is-4
-            | food optimizer 
+            | eat plants
   //- div#app
   //-   div.container
   //-     nav.navbar.is-transparent
@@ -112,3 +112,6 @@ export default {
   }
 }
 </script>
+
+<style lang="css">
+</style>
