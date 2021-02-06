@@ -1,26 +1,32 @@
 <template lang="pug">
   .container-fluid
-    .container.pt-3
+    .container.p-3
       .columns.is-mobile
         .column
           router-link(to='/').is-inline-block
             .title
-              span.is-size-3 eat plants
-          .is-inline-block.ml-5
+              span.is-hidden-mobile.is-size-1.logo-font 
+                span eat
+                span.plants-text &nbsp;plants
+              span.is-hidden-tablet.is-size-3.logo-font 
+                span eat
+                span.plants-text &nbsp;plants
+          .is-inline-block.ml-4
             router-link(to="/app/recipes").is-size-5.has-text-grey Recipes
           .is-inline-block.ml-4
-            router-link(to="/app/guides").is-size-5.has-text-grey.has-text-right Guide
+            router-link(to="/app/guides").is-size-5.has-text-grey Guide
           
-        .column.has-text-right
-          .is-inline-block
-            b-dropdown(v-if='!loggedIn', position='is-bottom-left' )
-                span.pointer.is-size-4(slot='trigger') 
-                  span Login or Signup
-                b-dropdown-item(custom='', paddingless='')
-                  signup-login(@login='', @register='')
-            div(v-else @click="logout")
-              span.pointer.is-size-4
-                  span Logout
+        
+          .is-inline-block.is-pulled-right
+            span.has-text-right
+              b-dropdown(v-if='!loggedIn', position='is-bottom-left' )
+                  span.pointer.is-size-5(slot='trigger') 
+                    span Login or Signup
+                  b-dropdown-item(custom='', paddingless='')
+                    signup-login(@login='', @register='')
+              span(v-else @click="logout")
+                span.pointer.is-size-5.has-text-grey
+                  | Logout
     nuxt
 
     footer.footer
@@ -112,3 +118,13 @@ export default {
   }
 }
 </script>
+
+
+<style>
+.logo-font {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.plants-text {
+  color: rgba(88, 122, 84, 0.88);
+}
+</style>

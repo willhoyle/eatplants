@@ -22,14 +22,15 @@ export default {
   data() {
     let menus = [
       {
-        items: [{ label: 'Optimizer', path: '/app/optimizer' }]
+        label: 'Meal Plan',
+        items: [{ label: 'Calendar', path: '/app/calendar' }]
       },
       {
-        label: 'Food Recipes',
+        label: 'My Library',
         items: [
-          { label: 'Editor', path: '/app/editor' },
+          { label: 'Food', path: '/app/food' },
           { label: 'Recipes', path: '/app/recipes' },
-          { label: 'Food', path: '/app/food' }
+          { label: 'Collections', path: '/app/collections' }
         ]
       },
       {

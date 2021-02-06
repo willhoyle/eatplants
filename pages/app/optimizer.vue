@@ -1,17 +1,24 @@
 <template lang="pug">
-  div.container-fluid
-    div.columns.is-multiline
-      .column.is-6
-        .columns.is-multiline.is-centered.my-3
-            .column.is-6
-              b-autocomplete(v-model="searchKey" :data="results" @select="addFood" rounded placeholder="Add food or recipe..." size="is-medium" icon="magnify")
-                template(slot-scope="props")
-                    div.media-content {{props.option.longDescription}}
+.container-fluid
+  .columns.is-multiline
+    .column.is-12
+      .columns.is-multiline.is-centered.my-3
+        .column.is-6
+          b-autocomplete(
+            v-model='searchKey',
+            :data='results',
+            @select='addFood',
+            rounded,
+            placeholder='Add food or recipe...',
+            size='is-medium',
+            icon='magnify'
+          )
+            template(slot-scope='props')
+              .media-content {{ props.option.longDescription }}
 
-                template(slot="empty") No results found
-        text-items(:foods="foods" @remove="removeFood")
-      .column.is-6
-        
+            template(slot='empty') No results found
+      text-items(:foods='foods', @remove='removeFood')
+    .column.is-6
 </template>
 
 <script>
@@ -36,7 +43,7 @@ export default {
 
       results: [],
 
-      foods: []
+      foods: [],
     }
   },
   watch: {
@@ -46,7 +53,7 @@ export default {
       } else {
         this.fetchItems()
       }
-    }
+    },
   },
   created() {},
   computed: {},
@@ -64,12 +71,12 @@ export default {
     },
     removeFood({ item, index }) {
       this.$delete(this.foods, index)
-    }
+    },
   },
   async asyncData({ $axios }) {
     let searchKey = 'q'
     let { data } = await $axios.get('/api/v1/search', {
-      params: { t: searchKey }
+      params: { t: searchKey },
     })
     return { foods: [data.results[0], data.results[1], data.results[2]] }
     // return Promise.all([
@@ -94,6 +101,6 @@ export default {
     //       Nutrient.insertOrUpdate({ data })
     //     })
     // ])
-  }
+  },
 }
 </script>
