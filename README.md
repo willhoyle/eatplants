@@ -1,6 +1,6 @@
 # Eatplants.app
 
-[eatplants.app](eatplants.app)
+[eatplants.app](https://eatplants.app)
 
 > Vegan meal planner and nutrient optimizer
 
