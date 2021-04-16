@@ -1,18 +1,10 @@
 <template lang="pug">
-.container-fluid
+.container-fluid.p-3
   .container.p-3
     .columns.is-centered.is-multiline
-      .column.is-6.has-text-centered
-        h3.is-size-3-tablet.is-size-4-mobile.is-title
-          | Plant-based meal planning
-        h5.is-size-5-tablet.is-size-6-mobile.has-text-grey
-          ul
-            li Track calories
-            li Optimize macronutrients and micronutrients
-            li Meal-prep Sunday tool
-            li Grocery list output
-            li Family plans available to collaborate
-            li and much more
+      .column.is-8.has-text-centered
+        h3.is-size-3-tablet.is-size-5-mobile.is-title.has-text-grey
+          | Plant-based meal planning and nutrient optimizer
       //- .column.is-6
       //-   //- clean-box
       //-   //- img(src="~/static/oats.jpg" style="cover: object-fit;")
@@ -32,14 +24,19 @@
             | Get Started
           //- b-icon(icon="arrow-right").ml-2
   div
-    .browse-recipe-section.columns.is-multiline
-      .column.is-12.has-text-centered
-        .is-size-4 Hundreds of recipes
+    //- .browse-recipe-section.columns.is-multiline
+    //-   .column.is-12.has-text-centered.has-text-grey
+    //-     .is-size-4 One-click from recipe to grocery list
     .columns.is-multiline.py-5
       //- .column.is-4.my-5
       //-   .has-text-centered
       //-     b-icon(icon="book-plus mdi-64px" size="is-xlarge")
       //-     .is-size-4.has-text-grey Log your food.
+      .column.is-4.my-5
+        feature-box(
+          icon='format-list-bulleted',
+          text='One-click grocery lists from recipes'
+        )
       .column.is-4.my-5
         feature-box(:src='vegansvg', text='100% Vegan')
 
@@ -47,32 +44,39 @@
         feature-box(icon='calculator', text='Optimize your nutrients')
 
       .column.is-4.my-5
-        feature-box(icon='file-multiple', text='Create nutrient profiles')
+        feature-box(
+          icon='file-multiple',
+          text='Create nutrient profiles for different days of the week'
+        )
 
-      //- .column.is-4.my-5
-      //-   feature-box(icon="leaf" text="Track micronutrients")
+      .column.is-4.my-5
+        feature-box(icon='leaf', text='Track macro/micronutrients')
 
-      //- .column.is-4.my-5
-      //-   feature-box(icon="clock" text="Food logging and sharing recipes")
+      .column.is-4.my-5
+        feature-box(icon='close', text='Intuitive eating, no food logging')
 
-      //- .column.is-4.my-5
-      //-   .has-text-centered
-      //-     b-icon(icon="calendar mdi-64px" size="is-xlarge")
-      //-     .is-size-4.has-text-grey Schedule your meals.
-      //- .column.is-4.my-5
-      //-   .has-text-centered
-      //-     b-icon(icon="share mdi-64px" size="is-xlarge")
-      //-     .is-size-4.has-text-grey Save and share recipes. 
+      .column.is-4.my-5
+        feature-box(
+          icon='share',
+          text='Save and share recipes and collections of foods'
+        )
 
-      //- .column.is-4.my-5
-      //-   .has-text-centered
-      //-     b-icon(icon="account-multiple mdi-64px" size="is-xlarge")
-      //-     .is-size-4.has-text-grey Plan meals for the whole family.
+      .column.is-4.my-5
+        feature-box(
+          icon='account-multiple',
+          text='Plan meals for the whole family or roommates'
+        )
 
-      //- .column.is-4.my-5
-      //-   .has-text-centered
-      //-     b-icon(icon="arrow-right mdi-64px" size="is-xlarge")
-      //-     .is-size-4.has-text-grey Reach your goals by following a plan.
+      .column.is-4.my-5
+        feature-box(
+          icon='check',
+          text='Don\'t know how to start? Follow a plan'
+        )
+    .columns.py-5
+      .column.is-centered.has-text-centered
+        nuxt-link(to='/app/optimizer')
+          button.button.has-background-primary 
+            | Get Started now
 </template>
 
 <script>
@@ -84,7 +88,7 @@ import vegansvg from '~/assets/vegetarian-mark.svg'
 
 import Food from '~models/Food'
 
-import { frontpageFoods, frontpageNutrients } from '../src/data/frontpage'
+import { frontpageFoods, frontpageNutrients } from '../data/frontpage'
 
 export default {
   components: {

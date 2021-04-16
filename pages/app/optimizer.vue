@@ -26,8 +26,8 @@ import FluidChart from '~/components/Chart/Chart.vue'
 import FoodSliders from '~/components/Chart/FoodSliders.vue'
 import TextItems from '~/components/Chart/TextItems.vue'
 
-import Food from '~/src/vuex-orm/models/Food'
-import Nutrient from '~/src/vuex-orm/models/Nutrient'
+import Food from '~models/Food'
+import Nutrient from '~models/Nutrient'
 
 import Fuse from 'fuse.js'
 
@@ -59,12 +59,12 @@ export default {
   computed: {},
   methods: {
     fetchItems() {
-      return this.$axios
-        .get('/api/v1/search', { params: { t: this.searchKey } })
-        .then(({ data }) => {
-          Food.insertOrUpdate({ data: data.results })
-          this.results = data.results
-        })
+      //   return this.$axios
+      //     .get('/api/v1/search', { params: { t: this.searchKey } })
+      //     .then(({ data }) => {
+      //       Food.insertOrUpdate({ data: data.results })
+      //       this.results = data.results
+      //     })
     },
     addFood(item) {
       this.foods.push(item)
@@ -74,11 +74,11 @@ export default {
     },
   },
   async asyncData({ $axios }) {
-    let searchKey = 'q'
-    let { data } = await $axios.get('/api/v1/search', {
-      params: { t: searchKey },
-    })
-    return { foods: [data.results[0], data.results[1], data.results[2]] }
+    // let searchKey = 'q'
+    // let { data } = await $axios.get('/api/v1/search', {
+    //   params: { t: searchKey },
+    // })
+    // return { foods: [data.results[0], data.results[1], data.results[2]] }
     // return Promise.all([
     //   $axios
     //     .get('/api/v1/Food', {

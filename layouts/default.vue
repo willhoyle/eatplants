@@ -3,7 +3,7 @@
   .container.p-3
     .columns.is-mobile
       .column
-        router-link.is-inline-block(to='/')
+        nuxt-link.is-inline-block(to='/')
           .title
             span.is-hidden-mobile.is-size-1.logo-font 
               span eat
@@ -12,9 +12,9 @@
               span eat
               span.plants-text &nbsp;plants
         .is-inline-block.ml-4
-          router-link.is-size-5.has-text-grey(to='/app/recipes') Recipes
+          nuxt-link.is-size-5.has-text-grey(to='/app/recipes') Recipes
         .is-inline-block.ml-4
-          router-link.is-size-5.has-text-grey(to='/app/guides') Guide
+          nuxt-link.is-size-5.has-text-grey(to='/app/guides') Guide
 
         .is-inline-block.is-pulled-right
           span.has-text-right
@@ -28,16 +28,15 @@
                 | Logout
   nuxt
 
-  footer.footer
+  .footer
     .container
       .columns.is-multiline.has-text-centered 
         .column.is-4
-          | Project by
+          di.mr-5 Project by
           a(href='https://williamhoyle.ca') William Hoyle
         .column.is-4
-          | Built with Buefy
         .column.is-4
-          | eat plants
+          a(href='https://github.com/willhoyle/eatplants') Github
 //- div#app
 //-   div.container
 //-     nav.navbar.is-transparent

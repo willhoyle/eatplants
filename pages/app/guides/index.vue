@@ -1,4 +1,3 @@
 <template lang="pug">
-    .container-fluid
-        | sup
+.container-fluid
 </template>

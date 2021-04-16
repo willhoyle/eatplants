@@ -138,7 +138,7 @@ $slider-border-radius: 2px;
 // Import Bulma and Buefy styles
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
-@import "~bulma-slider/dist/css/bulma-slider.sass";
+@import "../node_modules/bulma-slider/src/sass/index.sass";
 
 body {
     font-family: 'Open Sans', sans-serif;
