@@ -5,6 +5,10 @@
       .column.is-8.has-text-centered
         h3.is-size-3-tablet.is-size-5-mobile.is-title.has-text-grey
           | Plant-based meal planning and nutrient optimizer
+        .message.is-primary
+          .message-body
+            span.has-text-grey
+              | Note: App is not functional yet. Check back soon!
       //- .column.is-6
       //-   //- clean-box
       //-   //- img(src="~/static/oats.jpg" style="cover: object-fit;")
