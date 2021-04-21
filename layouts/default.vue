@@ -32,7 +32,7 @@
     .container
       .columns.is-multiline.has-text-centered 
         .column.is-4
-          di.mr-5 Project by
+          .mr-5 Project by
           a(href='https://williamhoyle.ca') William Hoyle
         .column.is-4
         .column.is-4

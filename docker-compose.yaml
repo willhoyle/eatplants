@@ -2,11 +2,13 @@ version: '3'
 services:
   postgres:
     image: postgres:latest
+    container_name: postgres_eatplants
     volumes:
       - ./.db/postgres:/var/lib/postgresql/data
+      - ./fixtures:/fixtures
     environment:
-      - 'POSTGRES_USER=postgres'
-      - 'POSTGRES_PASSWORD=password123'
-      - 'POSTGRES_DB=eatplants'
+      - POSTGRES_USER=eatplants
+      - POSTGRES_PASSWORD=password123
+      - POSTGRES_DB=eatplants
     ports:
       - '33333:5432'

@@ -1,0 +1,151 @@
+id^unit^name
+1^g^Protein
+2^g^Total lipid (fat)
+3^g^Carbohydrate, by difference
+4^g^Ash
+5^kcal^Energy
+6^g^Starch
+7^g^Sucrose
+8^g^Glucose (dextrose)
+9^g^Fructose
+10^g^Lactose
+11^g^Maltose
+12^g^Alcohol, ethyl
+13^g^Water
+14^g^Adjusted Protein
+15^mg^Caffeine
+16^mg^Theobromine
+17^kJ^Energy
+18^g^Sugars, total
+19^g^Galactose
+20^g^Fiber, total dietary
+21^mg^Calcium, Ca
+22^mg^Iron, Fe
+23^mg^Magnesium, Mg
+24^mg^Phosphorus, P
+25^mg^Potassium, K
+26^mg^Sodium, Na
+27^mg^Zinc, Zn
+28^mg^Copper, Cu
+29^µg^Fluoride, F
+30^mg^Manganese, Mn
+31^µg^Selenium, Se
+32^IU^Vitamin A, IU
+33^µg^Retinol
+34^µg^Vitamin A, RAE
+35^µg^Carotene, beta
+36^µg^Carotene, alpha
+37^mg^Vitamin E (alpha-tocopherol)
+38^IU^Vitamin D
+39^µg^Vitamin D2 (ergocalciferol)
+40^µg^Vitamin D3 (cholecalciferol)
+41^µg^Vitamin D (D2 + D3)
+42^µg^Cryptoxanthin, beta
+43^µg^Lycopene
+44^µg^Lutein + zeaxanthin
+45^mg^Tocopherol, beta
+46^mg^Tocopherol, gamma
+47^mg^Tocopherol, delta
+48^mg^Tocotrienol, alpha
+49^mg^Tocotrienol, beta
+50^mg^Tocotrienol, gamma
+51^mg^Tocotrienol, delta
+52^mg^Vitamin C, total ascorbic acid
+53^mg^Thiamin
+54^mg^Riboflavin
+55^mg^Niacin
+56^mg^Pantothenic acid
+57^mg^Vitamin B-6
+58^µg^Folate, total
+59^µg^Vitamin B-12
+60^mg^Choline, total
+61^µg^Menaquinone-4
+62^µg^Dihydrophylloquinone
+63^µg^Vitamin K (phylloquinone)
+64^µg^Folic acid
+65^µg^Folate, food
+66^µg^Folate, DFE
+67^mg^Betaine
+68^g^Tryptophan
+69^g^Threonine
+70^g^Isoleucine
+71^g^Leucine
+72^g^Lysine
+73^g^Methionine
+74^g^Cystine
+75^g^Phenylalanine
+76^g^Tyrosine
+77^g^Valine
+78^g^Arginine
+79^g^Histidine
+80^g^Alanine
+81^g^Aspartic acid
+82^g^Glutamic acid
+83^g^Glycine
+84^g^Proline
+85^g^Serine
+86^g^Hydroxyproline
+87^mg^Vitamin E, added
+88^µg^Vitamin B-12, added
+89^mg^Cholesterol
+90^g^Fatty acids, total trans
+91^g^Fatty acids, total saturated
+92^g^4:0
+93^g^6:0
+94^g^8:0
+95^g^10:0
+96^g^12:0
+97^g^14:0
+98^g^16:0
+99^g^18:0
+100^g^20:0
+101^g^18:1 undifferentiated
+102^g^18:2 undifferentiated
+103^g^18:3 undifferentiated
+104^g^20:4 undifferentiated
+105^g^22:6 n-3 (DHA)
+106^g^22:0
+107^g^14:1
+108^g^16:1 undifferentiated
+109^g^18:4
+110^g^20:1
+111^g^20:5 n-3 (EPA)
+112^g^22:1 undifferentiated
+113^g^22:5 n-3 (DPA)
+114^mg^Phytosterols
+115^mg^Stigmasterol
+116^mg^Campesterol
+117^mg^Beta-sitosterol
+118^g^Fatty acids, total monounsaturated
+119^g^Fatty acids, total polyunsaturated
+120^g^15:0
+121^g^17:0
+122^g^24:0
+123^g^16:1 t
+124^g^18:1 t
+125^g^22:1 t
+126^g^18:2 t not further defined
+127^g^18:2 i
+128^g^18:2 t,t
+129^g^18:2 CLAs
+130^g^24:1 c
+131^g^20:2 n-6 c,c
+132^g^16:1 c
+133^g^18:1 c
+134^g^18:2 n-6 c,c
+135^g^22:1 c
+136^g^18:3 n-6 c,c,c
+137^g^17:1
+138^g^20:3 undifferentiated
+139^g^Fatty acids, total trans-monoenoic
+140^g^Fatty acids, total trans-polyenoic
+141^g^13:0
+142^g^15:1
+143^g^18:3 n-3 c,c,c (ALA)
+144^g^20:3 n-3
+145^g^20:3 n-6
+146^g^20:4 n-6
+147^g^18:3i
+148^g^21:5
+149^g^22:4
+150^g^18:1-11 t (18:1t n-7)

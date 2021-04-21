@@ -2,6 +2,8 @@ const pkg = require('./package')
 
 const path = require('path')
 
+const webpack = require('webpack')
+
 module.exports = {
     target: 'server',
 
@@ -97,6 +99,10 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'graphql-tag/loader',
             })
+
+            config.plugins.push(
+                new webpack.IgnorePlugin(/(fs|child_process)/)
+            )
         }
     }
 }

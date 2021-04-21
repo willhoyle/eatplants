@@ -1,30 +1,39 @@
-POSTGRES_CONTAINER?=postgres
+POSTGRES_CONTAINER?=postgres_eatplants
+DATABASE_URL=postgres://eatplants:password123@localhost:33333/eatplants
 
 reset_db:
 	$(MAKE) clean_db
 	$(MAKE) init_db
-	# $(MAKE) populate_mongo
 	$(MAKE) populate_db
 
+psql:
+	docker exec -it ${POSTGRES_CONTAINER} psql -U eatplants -d eatplants
+
 clean_db:
-	docker exec -u postgres:postgres ${POSTGRES_CONTAINER} psql -d app -f /fixtures/sql/schema-drop.pgsql
+	docker exec ${POSTGRES_CONTAINER} psql -U eatplants -d eatplants -f /fixtures/sql/schema-drop.pgsql
 
 init_db:
-	docker exec -u postgres:postgres ${POSTGRES_CONTAINER} psql -d app -f /fixtures/sql/schema.pgsql
+	docker exec ${POSTGRES_CONTAINER} psql -U eatplants -d eatplants -f /fixtures/sql/schema.pgsql
 
 populate_db:
-	# $(MAKE) populate_db_sql
-	$(MAKE) populate_db_js
+	docker exec ${POSTGRES_CONTAINER} psql -U eatplants -d eatplants -f /fixtures/sql/import-csv.pgsql
 
-populate_db_sql:
-	docker exec -u postgres:postgres ${POSTGRES_CONTAINER} psql -d app -f /fixtures/sql/data.pgsql
-
-populate_db_js:
-	# id=docker inspect --format="{{.Id}}" fdaservice-next_app
-	docker exec app node ./fixtures/js/fixtures.js
-
-populate_mongo:
-	docker exec mongo_fdaservice_next mongorestore --dir /dump/fdaservice-planesciences --drop -d fdaservice
-
-npi:
-	docker exec -it app bash
+start_graphql:
+	postgraphile \
+		--subscriptions \
+		--watch \
+		--dynamic-json \
+		--no-setof-functions-contain-nulls \
+		--show-error-stack=json \
+		--extended-errors hint,detail,errcode \
+		--append-plugins @graphile-contrib/pg-simplify-inflector \
+		--export-schema-graphql schema.graphql \
+		--graphiql "/" \
+		--enhance-graphiql \
+		--allow-explain \
+		--enable-query-batching \
+		--legacy-relations omit \
+		--connection ${DATABASE_URL} \
+		--schema app
+	#	--no-ignore-rbac \
+	# --no-ignore-indexes \
