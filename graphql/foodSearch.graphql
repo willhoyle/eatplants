@@ -1,0 +1,15 @@
+query($searchTerm: String!) {
+  foods: allFoodsList(
+    first: 10
+    filter: {
+      or: [
+        { commonName: { includesInsensitive: $searchTerm } }
+        { longDescription: { includesInsensitive: $searchTerm } }
+      ]
+    }
+  ) {
+    id
+    commonName
+    longDescription
+  }
+}

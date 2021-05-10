@@ -26,7 +26,9 @@ start_graphql:
 		--no-setof-functions-contain-nulls \
 		--show-error-stack=json \
 		--extended-errors hint,detail,errcode \
+		--simple-collections both \
 		--append-plugins @graphile-contrib/pg-simplify-inflector \
+		--append-plugins postgraphile-plugin-connection-filter \
 		--export-schema-graphql schema.graphql \
 		--graphiql "/" \
 		--enhance-graphiql \
@@ -34,6 +36,7 @@ start_graphql:
 		--enable-query-batching \
 		--legacy-relations omit \
 		--connection ${DATABASE_URL} \
-		--schema app
+		--schema app \
+		--cors
 	#	--no-ignore-rbac \
 	# --no-ignore-indexes \

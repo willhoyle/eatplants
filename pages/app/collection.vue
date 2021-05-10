@@ -5,48 +5,46 @@
       .columns.is-multiline.is-centered.my-3
         .column.is-6
           b-autocomplete(
-            v-model='searchTerm',
+            v-model='searchKey',
             :data='results',
+            @select='addFood',
             rounded,
-            placeholder='Search food...',
+            placeholder='Search collections...',
             size='is-medium',
             icon='magnify'
           )
             template(slot-scope='props')
               p 
-                strong {{ props.option.commonName }}
+                strong {{ props.option.name }}
                 br
-                | {{ props.option.longDescription }}
+                | {{ props.option.description }}
 
             template(slot='empty') No results found
 </template>
 
 <script>
-import foodSearch from '../../graphql/foodSearch.graphql'
+import collectionSearch from '../../graphql/collectionSearch.graphql'
 
 export default {
   apollo: {
-    foods: {
-      query: foodSearch,
+    collections: {
+      query: collectionSearch,
       variables() {
         return {
-          searchTerm: this.searchTerm,
+          searchTerm: '',
         }
-      },
-      skip() {
-        return this.searchTerm == ''
       },
     },
   },
   data() {
     return {
-      foods: [],
-      searchTerm: '',
+      collections: [],
     }
   },
   computed: {
     results() {
-      return this.foods
+      console.log(this.collections)
+      return this.collections
     },
   },
 }

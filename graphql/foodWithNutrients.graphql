@@ -1,0 +1,11 @@
+query($ids: [Int!]!) {
+  foodWithNutrients: allFoodsList(filter: { id: { in: $ids } }) {
+    nutrients: foodNutrientsByFoodIdList {
+      valuePerG
+      nutrient: nutrientByNutrientId {
+        name
+        unit
+      }
+    }
+  }
+}

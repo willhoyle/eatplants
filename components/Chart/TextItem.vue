@@ -6,101 +6,100 @@
     :style='successZoneStyles'
   )
   .slider(
-    v-if='animate',
     ref='sliderRef',
     :class='{ "slider-tight": tight }',
     :style='sliderStyles'
   )
-  .slider(
-    v-else,
-    ref='sliderRef',
-    :class='{ "slider-tight": tight }',
-    :style='sliderStyles'
-  )
+    b-icon.pointer.pin(v-if='item.isPinned', icon='lock', size='is-small')
 </template>
 
 <script>
-import interact from 'interactjs'
+let PlainDraggable
+if (process.client) {
+  PlainDraggable = require('../../src/plain-draggable/plain-draggable.esm.js')
+    .default
+}
+
+import ResizeSensor from 'css-element-queries/src/ResizeSensor'
+
 export default {
-  props: ['item', 'tight', 'animate'],
+  props: ['item', 'tight', 'idx'],
   data() {
     return {
-      sliderPosX: 0,
-
-      min: 0,
-      max: 0,
-      val: 0,
+      sliderX: 0,
       sliderRef: null,
       successRef: null,
-      styles: {
-        successZone: {
-          width: 33,
-          'margin-left': 33,
-        },
-        slider: {
-          'margin-left': 33,
-        },
-      },
+      draggable: null,
     }
   },
   watch: {
-    animate(val) {
-      if (val) {
-        // this.animateSlider(50)
-        window.setTimeout(() => {
-          this.$emit('update:animate', false)
-        }, 2000)
-      }
+    item: {
+      handler() {
+        this.$nextTick(() => {
+          this.setup()
+        })
+      },
+      deep: true,
     },
   },
   mounted() {
-    this.sliderRef = this.$refs.sliderRef
-    this.successRef = this.$refs.successRef
-    this.sliderContainerRef = this.$refs.sliderContainerRef
-
-    let rect = this.successRef.getBoundingClientRect()
-    this.sliderPosX = this.sliderRef.getBoundingClientRect().x
-    let draggable = interact(this.sliderRef).draggable({
-      modifiers: [
-        interact.modifiers.restrict({
-          restriction: 'parent',
-        }),
-      ],
+    this.setup()
+    new ResizeSensor(this.$refs.sliderContainerRef, () => {
+      this.setup()
     })
-    //   containment: {
-    //     left: rect.x - 10,
-    //     height: 0,
-    //     top: 0,
-    //     right: rect.x + rect.width + 10
-    //   },
-    //   onDragEnd: newPosition => {
-    //     let containerWidth = this.$refs.sliderContainerRef.getBoundingClientRect()
-    //       .width
-
-    //     let percentageMoved =
-    //       (newPosition.left - this.sliderPosX) / containerWidth
-    //     this.sliderPosX = newPosition.left
-    //     this.$emit('slider-moved', { id: 1, percentageMoved })
-    //   }
-    // })
-    // console.log(getOffset(this.sliderContainerRef))
   },
   computed: {
     successZoneStyles() {
-      let styles = this.styles.successZone
+      let styles = this.item.successZone
       return {
         width: styles.width + '%',
         'margin-left': styles['margin-left'] + '%',
       }
     },
     sliderStyles() {
-      let styles = this.styles.slider
+      let styles = this.item.slider
       return {
         'margin-left': styles['margin-left'] + '%',
       }
     },
   },
-  methods: {},
+  methods: {
+    setup() {
+      this.sliderRef = this.$refs.sliderRef
+      this.successRef = this.$refs.successRef
+      this.sliderContainerRef = this.$refs.sliderContainerRef
+      let rect = this.successRef.getBoundingClientRect()
+      this.sliderX = this.sliderRef.getBoundingClientRect().x
+      if (!this.draggable) {
+        this.draggable = new PlainDraggable(this.sliderRef, {
+          containment: {
+            left: rect.x - 10,
+            height: 0,
+            top: 0,
+            right: rect.x + rect.width + 10,
+          },
+          onDragEnd: (newPosition) => {
+            console.log(newPosition)
+            let containerWidth = this.$refs.sliderContainerRef.getBoundingClientRect()
+              .width
+            let percentageMoved =
+              (newPosition.left - this.sliderX) / containerWidth
+            this.sliderX = newPosition.left
+            console.log({ x: this.sliderX })
+            this.item.onSliderMoved({ idx: this.idx, percentageMoved })
+            console.log({ idx: this.idx, percentageMoved })
+          },
+        })
+      } else {
+        this.draggable.containment = {
+          left: rect.x - 10,
+          height: 0,
+          top: 0,
+          right: rect.x + rect.width + 10,
+        }
+      }
+    },
+  },
 }
 </script>
 

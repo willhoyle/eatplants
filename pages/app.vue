@@ -24,45 +24,45 @@ export default {
   data() {
     let menus = [
       {
-        items: [{ label: 'Dashboard', path: '/app' }],
+        items: [{ label: 'Optimizer', path: '/app/optimizer' }],
       },
-      {
-        label: 'Meal Plan',
-        items: [{ label: 'Calendar', path: '/app/calendar' }],
-      },
-      {
-        label: 'My Library',
-        items: [
-          { label: 'Food', path: '/app/food' },
-          { label: 'Recipes', path: '/app/recipes' },
-          { label: 'Collections', path: '/app/collections' },
-        ],
-      },
-      {
-        label: 'Settings',
-        items: [
-          {
-            label: 'Nutrient Profiles',
-            path: '/app/settings/configuration',
-          },
-          { label: 'Account', path: '/app/settings/account' },
-        ],
-      },
-      {
-        label: 'Moderation',
-        roles: ['mod'],
-        items: [{ label: 'Submissions', path: '/app/moderation/submissions' }],
-      },
-      {
-        label: 'Dev',
-        roles: ['dev'],
-        items: [
-          { label: 'Servers', path: '/app/admin/servers' },
-          { label: 'Users', path: '/app/admin/users' },
-          { label: 'Groups', path: '/app/admin/groups' },
-          { label: 'Organizations', path: '/app/admin/organizations' },
-        ],
-      },
+        {
+          label: 'Meal Plan',
+          items: [{ label: 'Calendar', path: '/app/calendar' }],
+        },
+        {
+          label: 'Explore',
+          items: [
+            { label: 'Food', path: '/app/food' },
+            { label: 'Recipes', path: '/app/recipes' },
+            { label: 'Collections', path: '/app/collections' },
+          ],
+        },
+      //   {
+      //     label: 'Settings',
+      //     items: [
+      //       {
+      //         label: 'Nutrient Profiles',
+      //         path: '/app/settings/configuration',
+      //       },
+      //       { label: 'Account', path: '/app/settings/account' },
+      //     ],
+      //   },
+      //   {
+      //     label: 'Moderation',
+      //     roles: ['mod'],
+      //     items: [{ label: 'Submissions', path: '/app/moderation/submissions' }],
+      //   },
+      //   {
+      //     label: 'Dev',
+      //     roles: ['dev'],
+      //     items: [
+      //       { label: 'Servers', path: '/app/admin/servers' },
+      //       { label: 'Users', path: '/app/admin/users' },
+      //       { label: 'Groups', path: '/app/admin/groups' },
+      //       { label: 'Organizations', path: '/app/admin/organizations' },
+      //     ],
+      //   },
     ]
     return {
       menus,

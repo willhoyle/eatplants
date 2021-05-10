@@ -11,32 +11,35 @@
             span.is-hidden-tablet.is-size-3.logo-font 
               span eat
               span.plants-text &nbsp;plants
-        .is-inline-block.ml-4
-          nuxt-link.is-size-5.has-text-grey(to='/app/recipes') Recipes
-        .is-inline-block.ml-4
-          nuxt-link.is-size-5.has-text-grey(to='/app/guides') Guide
+        //- .is-inline-block.ml-4
+        //-   nuxt-link.is-size-5.has-text-grey(to='/app/recipes') Recipes
+        //- .is-inline-block.ml-4
+        //-   nuxt-link.is-size-5.has-text-grey(to='/app/guides') Guide
 
-        .is-inline-block.is-pulled-right
-          span.has-text-right
-            b-dropdown(v-if='!loggedIn', position='is-bottom-left')
-              span.pointer.is-size-5(slot='trigger') 
-                span Login or Signup
-              b-dropdown-item(custom='', paddingless='')
-                signup-login(@login='', @register='')
-            span(v-else, @click='logout')
-              span.pointer.is-size-5.has-text-grey
-                | Logout
-  nuxt
+        //- .is-inline-block.is-pulled-right
+        //-   span.has-text-right
+        //-     b-dropdown(v-if='!loggedIn', position='is-bottom-left')
+        //-       a.pointer.is-size-5(slot='trigger') 
+        //-         span Login or Signup
+        //-       b-dropdown-item(custom='', paddingless='')
+        //-         signup-login(@login='', @register='')
+        //-     span(v-else, @click='logout')
+        //-       a.pointer.is-size-5.has-text-grey
+        //-         | Logout
+  nuxt.mb-16
 
   .footer
     .container
       .columns.is-multiline.has-text-centered 
-        .column.is-4
-          .mr-5 Project by
-          a(href='https://williamhoyle.ca') William Hoyle
-        .column.is-4
-        .column.is-4
-          a(href='https://github.com/willhoyle/eatplants') Github
+        .column
+          div Project by
+          div
+            a(href='https://williamhoyle.ca') William Hoyle
+          .mt-5
+            | This project is open-source (MIT)
+          div
+            img(style='width: 16px; height: 16px', src='/GitHub-Mark-32px.png')
+            a.ml-1(href='https://github.com/willhoyle/eatplants') Github
 //- div#app
 //-   div.container
 //-     nav.navbar.is-transparent

@@ -4,6 +4,8 @@ const path = require('path')
 
 const webpack = require('webpack')
 
+const isProd = process.env.NODE_ENV == 'production'
+
 module.exports = {
     target: 'server',
 
@@ -50,7 +52,7 @@ module.exports = {
     /*
      ** Global CSS
      */
-    css: ['~/assets/styles.css', '~/assets/custom.scss'],
+    css: ['~/assets/custom.scss'],
 
     /*
      ** Plugins to load before mounting the App
@@ -66,24 +68,15 @@ module.exports = {
      ** Nuxt.js modules
      */
     modules: [
-        // Doc: https://github.com/nuxt-community/axios-module#usage
-        '@nuxtjs/axios',
         // Doc: https://buefy.github.io/#/documentation
-        'nuxt-buefy'
+        'nuxt-buefy',
     ],
-    /*
-     ** Axios module configuration
-     */
-    axios: {
-        // See https://github.com/nuxt-community/axios-module#options
-        browserBaseURL: 'http://localhost:3333',
-        baseURL: 'http://localhost:3333'
-    },
 
     /* nuxt-buefy module configuration */
     'nuxt-buefy': {
         css: false
     },
+
 
     /*
      ** Build configuration

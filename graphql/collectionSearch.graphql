@@ -1,0 +1,14 @@
+query($searchTerm: String!) {
+  collections: allCollectionsList(
+    filter: {
+      or: [
+        { name: { includesInsensitive: $searchTerm } }
+        { description: { includesInsensitive: $searchTerm } }
+      ]
+    }
+  ) {
+    id
+    name
+    description
+  }
+}

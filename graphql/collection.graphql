@@ -1,0 +1,37 @@
+query($id: Int!) {
+  collection(id: $id) {
+    collectionFoodItems {
+      edges {
+        node {
+          food {
+            longDescription
+            foodNutrients {
+              edges {
+                node {
+                  nutrient {
+                    unit
+                    name
+                    id
+                  }
+                  valuePerG
+                  valuePerKcal
+                  id
+                }
+              }
+            }
+            foodMeasureWeights {
+              edges {
+                node {
+                  measure
+                  weightInG
+                  id
+                }
+              }
+            }
+            id
+          }
+        }
+      }
+    }
+  }
+}

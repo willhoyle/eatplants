@@ -18,7 +18,7 @@ type Query implements Node {
   ): Node
 
   """Reads and enables pagination through a set of `Collection`."""
-  collections(
+  allCollections(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -44,12 +44,39 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CollectionCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionFilter
   ): CollectionsConnection
+
+  """Reads a set of `Collection`."""
+  allCollectionsList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `Collection`."""
+    orderBy: [CollectionsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CollectionCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionFilter
+  ): [Collection!]
 
   """
   Reads and enables pagination through a set of `CollectionCollectionItem`.
   """
-  collectionCollectionItems(
+  allCollectionCollectionItems(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -75,10 +102,37 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CollectionCollectionItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionCollectionItemFilter
   ): CollectionCollectionItemsConnection
 
+  """Reads a set of `CollectionCollectionItem`."""
+  allCollectionCollectionItemsList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `CollectionCollectionItem`."""
+    orderBy: [CollectionCollectionItemsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CollectionCollectionItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionCollectionItemFilter
+  ): [CollectionCollectionItem!]
+
   """Reads and enables pagination through a set of `CollectionFoodItem`."""
-  collectionFoodItems(
+  allCollectionFoodItems(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -104,10 +158,37 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CollectionFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionFoodItemFilter
   ): CollectionFoodItemsConnection
 
+  """Reads a set of `CollectionFoodItem`."""
+  allCollectionFoodItemsList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `CollectionFoodItem`."""
+    orderBy: [CollectionFoodItemsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CollectionFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionFoodItemFilter
+  ): [CollectionFoodItem!]
+
   """Reads and enables pagination through a set of `CollectionRecipeItem`."""
-  collectionRecipeItems(
+  allCollectionRecipeItems(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -133,10 +214,37 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CollectionRecipeItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionRecipeItemFilter
   ): CollectionRecipeItemsConnection
 
+  """Reads a set of `CollectionRecipeItem`."""
+  allCollectionRecipeItemsList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `CollectionRecipeItem`."""
+    orderBy: [CollectionRecipeItemsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CollectionRecipeItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionRecipeItemFilter
+  ): [CollectionRecipeItem!]
+
   """Reads and enables pagination through a set of `Food`."""
-  foods(
+  allFoods(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -162,10 +270,37 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: FoodCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodFilter
   ): FoodsConnection
 
+  """Reads a set of `Food`."""
+  allFoodsList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `Food`."""
+    orderBy: [FoodsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: FoodCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodFilter
+  ): [Food!]
+
   """Reads and enables pagination through a set of `FoodGroup`."""
-  foodGroups(
+  allFoodGroups(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -191,10 +326,37 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: FoodGroupCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodGroupFilter
   ): FoodGroupsConnection
 
+  """Reads a set of `FoodGroup`."""
+  allFoodGroupsList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `FoodGroup`."""
+    orderBy: [FoodGroupsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: FoodGroupCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodGroupFilter
+  ): [FoodGroup!]
+
   """Reads and enables pagination through a set of `FoodMeasureWeight`."""
-  foodMeasureWeights(
+  allFoodMeasureWeights(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -220,10 +382,37 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: FoodMeasureWeightCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodMeasureWeightFilter
   ): FoodMeasureWeightsConnection
 
+  """Reads a set of `FoodMeasureWeight`."""
+  allFoodMeasureWeightsList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `FoodMeasureWeight`."""
+    orderBy: [FoodMeasureWeightsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: FoodMeasureWeightCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodMeasureWeightFilter
+  ): [FoodMeasureWeight!]
+
   """Reads and enables pagination through a set of `FoodNutrient`."""
-  foodNutrients(
+  allFoodNutrients(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -249,10 +438,37 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: FoodNutrientCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodNutrientFilter
   ): FoodNutrientsConnection
 
+  """Reads a set of `FoodNutrient`."""
+  allFoodNutrientsList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `FoodNutrient`."""
+    orderBy: [FoodNutrientsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: FoodNutrientCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodNutrientFilter
+  ): [FoodNutrient!]
+
   """Reads and enables pagination through a set of `Nutrient`."""
-  nutrients(
+  allNutrients(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -278,10 +494,37 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: NutrientCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NutrientFilter
   ): NutrientsConnection
 
+  """Reads a set of `Nutrient`."""
+  allNutrientsList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `Nutrient`."""
+    orderBy: [NutrientsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: NutrientCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NutrientFilter
+  ): [Nutrient!]
+
   """Reads and enables pagination through a set of `Recipe`."""
-  recipes(
+  allRecipes(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -307,10 +550,37 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: RecipeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RecipeFilter
   ): RecipesConnection
 
+  """Reads a set of `Recipe`."""
+  allRecipesList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `Recipe`."""
+    orderBy: [RecipesOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RecipeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RecipeFilter
+  ): [Recipe!]
+
   """Reads and enables pagination through a set of `RecipeFoodItem`."""
-  recipeFoodItems(
+  allRecipeFoodItems(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -336,25 +606,52 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: RecipeFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RecipeFoodItemFilter
   ): RecipeFoodItemsConnection
-  collection(id: Int!): Collection
-  collectionCollectionItem(id: Int!): CollectionCollectionItem
-  collectionFoodItem(id: Int!): CollectionFoodItem
+
+  """Reads a set of `RecipeFoodItem`."""
+  allRecipeFoodItemsList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `RecipeFoodItem`."""
+    orderBy: [RecipeFoodItemsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RecipeFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RecipeFoodItemFilter
+  ): [RecipeFoodItem!]
+  collectionById(id: Int!): Collection
+  collectionCollectionItemById(id: Int!): CollectionCollectionItem
+  collectionFoodItemById(id: Int!): CollectionFoodItem
   collectionFoodItemByFoodIdAndCollectionId(foodId: Int!, collectionId: Int!): CollectionFoodItem
-  collectionRecipeItem(id: Int!): CollectionRecipeItem
+  collectionRecipeItemById(id: Int!): CollectionRecipeItem
   collectionRecipeItemByRecipeIdAndCollectionId(recipeId: Int!, collectionId: Int!): CollectionRecipeItem
-  food(id: Int!): Food
-  foodGroup(id: Int!): FoodGroup
-  foodMeasureWeight(id: Int!): FoodMeasureWeight
-  foodNutrient(id: Int!): FoodNutrient
+  foodById(id: Int!): Food
+  foodGroupById(id: Int!): FoodGroup
+  foodMeasureWeightById(id: Int!): FoodMeasureWeight
+  foodNutrientById(id: Int!): FoodNutrient
   foodNutrientByNutrientIdAndFoodId(nutrientId: Int!, foodId: Int!): FoodNutrient
-  nutrient(id: Int!): Nutrient
-  recipe(id: Int!): Recipe
-  recipeFoodItem(id: Int!): RecipeFoodItem
+  nutrientById(id: Int!): Nutrient
+  recipeById(id: Int!): Recipe
+  recipeFoodItemById(id: Int!): RecipeFoodItem
   recipeFoodItemByRecipeIdAndFoodId(recipeId: Int!, foodId: Int!): RecipeFoodItem
 
   """Reads a single `Collection` using its globally unique `ID`."""
-  collectionByNodeId(
+  collection(
     """
     The globally unique `ID` to be used in selecting a single `Collection`.
     """
@@ -364,7 +661,7 @@ type Query implements Node {
   """
   Reads a single `CollectionCollectionItem` using its globally unique `ID`.
   """
-  collectionCollectionItemByNodeId(
+  collectionCollectionItem(
     """
     The globally unique `ID` to be used in selecting a single `CollectionCollectionItem`.
     """
@@ -372,7 +669,7 @@ type Query implements Node {
   ): CollectionCollectionItem
 
   """Reads a single `CollectionFoodItem` using its globally unique `ID`."""
-  collectionFoodItemByNodeId(
+  collectionFoodItem(
     """
     The globally unique `ID` to be used in selecting a single `CollectionFoodItem`.
     """
@@ -380,7 +677,7 @@ type Query implements Node {
   ): CollectionFoodItem
 
   """Reads a single `CollectionRecipeItem` using its globally unique `ID`."""
-  collectionRecipeItemByNodeId(
+  collectionRecipeItem(
     """
     The globally unique `ID` to be used in selecting a single `CollectionRecipeItem`.
     """
@@ -388,19 +685,19 @@ type Query implements Node {
   ): CollectionRecipeItem
 
   """Reads a single `Food` using its globally unique `ID`."""
-  foodByNodeId(
+  food(
     """The globally unique `ID` to be used in selecting a single `Food`."""
     nodeId: ID!
   ): Food
 
   """Reads a single `FoodGroup` using its globally unique `ID`."""
-  foodGroupByNodeId(
+  foodGroup(
     """The globally unique `ID` to be used in selecting a single `FoodGroup`."""
     nodeId: ID!
   ): FoodGroup
 
   """Reads a single `FoodMeasureWeight` using its globally unique `ID`."""
-  foodMeasureWeightByNodeId(
+  foodMeasureWeight(
     """
     The globally unique `ID` to be used in selecting a single `FoodMeasureWeight`.
     """
@@ -408,7 +705,7 @@ type Query implements Node {
   ): FoodMeasureWeight
 
   """Reads a single `FoodNutrient` using its globally unique `ID`."""
-  foodNutrientByNodeId(
+  foodNutrient(
     """
     The globally unique `ID` to be used in selecting a single `FoodNutrient`.
     """
@@ -416,19 +713,19 @@ type Query implements Node {
   ): FoodNutrient
 
   """Reads a single `Nutrient` using its globally unique `ID`."""
-  nutrientByNodeId(
+  nutrient(
     """The globally unique `ID` to be used in selecting a single `Nutrient`."""
     nodeId: ID!
   ): Nutrient
 
   """Reads a single `Recipe` using its globally unique `ID`."""
-  recipeByNodeId(
+  recipe(
     """The globally unique `ID` to be used in selecting a single `Recipe`."""
     nodeId: ID!
   ): Recipe
 
   """Reads a single `RecipeFoodItem` using its globally unique `ID`."""
-  recipeFoodItemByNodeId(
+  recipeFoodItem(
     """
     The globally unique `ID` to be used in selecting a single `RecipeFoodItem`.
     """
@@ -471,7 +768,7 @@ type Collection implements Node {
   description: String
 
   """Reads and enables pagination through a set of `CollectionFoodItem`."""
-  collectionFoodItems(
+  collectionFoodItemsByCollectionId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -497,10 +794,37 @@ type Collection implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CollectionFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionFoodItemFilter
   ): CollectionFoodItemsConnection!
 
+  """Reads and enables pagination through a set of `CollectionFoodItem`."""
+  collectionFoodItemsByCollectionIdList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `CollectionFoodItem`."""
+    orderBy: [CollectionFoodItemsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CollectionFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionFoodItemFilter
+  ): [CollectionFoodItem!]!
+
   """Reads and enables pagination through a set of `CollectionRecipeItem`."""
-  collectionRecipeItems(
+  collectionRecipeItemsByCollectionId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -526,12 +850,39 @@ type Collection implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CollectionRecipeItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionRecipeItemFilter
   ): CollectionRecipeItemsConnection!
+
+  """Reads and enables pagination through a set of `CollectionRecipeItem`."""
+  collectionRecipeItemsByCollectionIdList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `CollectionRecipeItem`."""
+    orderBy: [CollectionRecipeItemsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CollectionRecipeItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionRecipeItemFilter
+  ): [CollectionRecipeItem!]!
 
   """
   Reads and enables pagination through a set of `CollectionCollectionItem`.
   """
-  collectionCollectionItems(
+  collectionCollectionItemsByCollectionId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -557,7 +908,36 @@ type Collection implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CollectionCollectionItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionCollectionItemFilter
   ): CollectionCollectionItemsConnection!
+
+  """
+  Reads and enables pagination through a set of `CollectionCollectionItem`.
+  """
+  collectionCollectionItemsByCollectionIdList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `CollectionCollectionItem`."""
+    orderBy: [CollectionCollectionItemsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CollectionCollectionItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionCollectionItemFilter
+  ): [CollectionCollectionItem!]!
 }
 
 """A connection to a list of `CollectionFoodItem` values."""
@@ -589,12 +969,12 @@ type CollectionFoodItem implements Node {
   collectionId: Int
 
   """Reads a single `Food` that is related to this `CollectionFoodItem`."""
-  food: Food
+  foodByFoodId: Food
 
   """
   Reads a single `Collection` that is related to this `CollectionFoodItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 }
 
 type Food implements Node {
@@ -609,10 +989,10 @@ type Food implements Node {
   commonName: String
 
   """Reads a single `FoodGroup` that is related to this `Food`."""
-  foodGroup: FoodGroup
+  foodGroupByFoodGroupId: FoodGroup
 
   """Reads and enables pagination through a set of `FoodNutrient`."""
-  foodNutrients(
+  foodNutrientsByFoodId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -638,10 +1018,37 @@ type Food implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: FoodNutrientCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodNutrientFilter
   ): FoodNutrientsConnection!
 
+  """Reads and enables pagination through a set of `FoodNutrient`."""
+  foodNutrientsByFoodIdList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `FoodNutrient`."""
+    orderBy: [FoodNutrientsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: FoodNutrientCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodNutrientFilter
+  ): [FoodNutrient!]!
+
   """Reads and enables pagination through a set of `FoodMeasureWeight`."""
-  foodMeasureWeights(
+  foodMeasureWeightsByFoodId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -667,10 +1074,37 @@ type Food implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: FoodMeasureWeightCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodMeasureWeightFilter
   ): FoodMeasureWeightsConnection!
 
+  """Reads and enables pagination through a set of `FoodMeasureWeight`."""
+  foodMeasureWeightsByFoodIdList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `FoodMeasureWeight`."""
+    orderBy: [FoodMeasureWeightsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: FoodMeasureWeightCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodMeasureWeightFilter
+  ): [FoodMeasureWeight!]!
+
   """Reads and enables pagination through a set of `RecipeFoodItem`."""
-  recipeFoodItems(
+  recipeFoodItemsByFoodId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -696,10 +1130,37 @@ type Food implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: RecipeFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RecipeFoodItemFilter
   ): RecipeFoodItemsConnection!
 
+  """Reads and enables pagination through a set of `RecipeFoodItem`."""
+  recipeFoodItemsByFoodIdList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `RecipeFoodItem`."""
+    orderBy: [RecipeFoodItemsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RecipeFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RecipeFoodItemFilter
+  ): [RecipeFoodItem!]!
+
   """Reads and enables pagination through a set of `CollectionFoodItem`."""
-  collectionFoodItems(
+  collectionFoodItemsByFoodId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -725,7 +1186,34 @@ type Food implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CollectionFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionFoodItemFilter
   ): CollectionFoodItemsConnection!
+
+  """Reads and enables pagination through a set of `CollectionFoodItem`."""
+  collectionFoodItemsByFoodIdList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `CollectionFoodItem`."""
+    orderBy: [CollectionFoodItemsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CollectionFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionFoodItemFilter
+  ): [CollectionFoodItem!]!
 }
 
 type FoodGroup implements Node {
@@ -737,7 +1225,7 @@ type FoodGroup implements Node {
   name: String
 
   """Reads and enables pagination through a set of `Food`."""
-  foods(
+  foodsByFoodGroupId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -763,7 +1251,34 @@ type FoodGroup implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: FoodCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodFilter
   ): FoodsConnection!
+
+  """Reads and enables pagination through a set of `Food`."""
+  foodsByFoodGroupIdList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `Food`."""
+    orderBy: [FoodsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: FoodCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodFilter
+  ): [Food!]!
 }
 
 """A connection to a list of `Food` values."""
@@ -847,6 +1362,209 @@ input FoodCondition {
   commonName: String
 }
 
+"""
+A filter to be used against `Food` object types. All fields are combined with a logical ‘and.’
+"""
+input FoodFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `foodGroupId` field."""
+  foodGroupId: IntFilter
+
+  """Filter by the object’s `longDescription` field."""
+  longDescription: StringFilter
+
+  """Filter by the object’s `shortDescription` field."""
+  shortDescription: StringFilter
+
+  """Filter by the object’s `commonName` field."""
+  commonName: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [FoodFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [FoodFilter!]
+
+  """Negates the expression."""
+  not: FoodFilter
+}
+
+"""
+A filter to be used against Int fields. All fields are combined with a logical ‘and.’
+"""
+input IntFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Int
+
+  """Not equal to the specified value."""
+  notEqualTo: Int
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Int
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Int
+
+  """Included in the specified list."""
+  in: [Int!]
+
+  """Not included in the specified list."""
+  notIn: [Int!]
+
+  """Less than the specified value."""
+  lessThan: Int
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Int
+
+  """Greater than the specified value."""
+  greaterThan: Int
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Int
+}
+
+"""
+A filter to be used against String fields. All fields are combined with a logical ‘and.’
+"""
+input StringFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: String
+
+  """Not equal to the specified value."""
+  notEqualTo: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: String
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: String
+
+  """Included in the specified list."""
+  in: [String!]
+
+  """Not included in the specified list."""
+  notIn: [String!]
+
+  """Less than the specified value."""
+  lessThan: String
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: String
+
+  """Greater than the specified value."""
+  greaterThan: String
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: String
+
+  """Contains the specified string (case-sensitive)."""
+  includes: String
+
+  """Does not contain the specified string (case-sensitive)."""
+  notIncludes: String
+
+  """Contains the specified string (case-insensitive)."""
+  includesInsensitive: String
+
+  """Does not contain the specified string (case-insensitive)."""
+  notIncludesInsensitive: String
+
+  """Starts with the specified string (case-sensitive)."""
+  startsWith: String
+
+  """Does not start with the specified string (case-sensitive)."""
+  notStartsWith: String
+
+  """Starts with the specified string (case-insensitive)."""
+  startsWithInsensitive: String
+
+  """Does not start with the specified string (case-insensitive)."""
+  notStartsWithInsensitive: String
+
+  """Ends with the specified string (case-sensitive)."""
+  endsWith: String
+
+  """Does not end with the specified string (case-sensitive)."""
+  notEndsWith: String
+
+  """Ends with the specified string (case-insensitive)."""
+  endsWithInsensitive: String
+
+  """Does not end with the specified string (case-insensitive)."""
+  notEndsWithInsensitive: String
+
+  """
+  Matches the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  like: String
+
+  """
+  Does not match the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLike: String
+
+  """
+  Matches the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  likeInsensitive: String
+
+  """
+  Does not match the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLikeInsensitive: String
+
+  """Equal to the specified value (case-insensitive)."""
+  equalToInsensitive: String
+
+  """Not equal to the specified value (case-insensitive)."""
+  notEqualToInsensitive: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  distinctFromInsensitive: String
+
+  """
+  Equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  notDistinctFromInsensitive: String
+
+  """Included in the specified list (case-insensitive)."""
+  inInsensitive: [String!]
+
+  """Not included in the specified list (case-insensitive)."""
+  notInInsensitive: [String!]
+
+  """Less than the specified value (case-insensitive)."""
+  lessThanInsensitive: String
+
+  """Less than or equal to the specified value (case-insensitive)."""
+  lessThanOrEqualToInsensitive: String
+
+  """Greater than the specified value (case-insensitive)."""
+  greaterThanInsensitive: String
+
+  """Greater than or equal to the specified value (case-insensitive)."""
+  greaterThanOrEqualToInsensitive: String
+}
+
 """A connection to a list of `FoodNutrient` values."""
 type FoodNutrientsConnection {
   """A list of `FoodNutrient` objects."""
@@ -876,10 +1594,10 @@ type FoodNutrient implements Node {
   valuePerKcal: Float
 
   """Reads a single `Nutrient` that is related to this `FoodNutrient`."""
-  nutrient: Nutrient
+  nutrientByNutrientId: Nutrient
 
   """Reads a single `Food` that is related to this `FoodNutrient`."""
-  food: Food
+  foodByFoodId: Food
 }
 
 type Nutrient implements Node {
@@ -892,7 +1610,7 @@ type Nutrient implements Node {
   name: String
 
   """Reads and enables pagination through a set of `FoodNutrient`."""
-  foodNutrients(
+  foodNutrientsByNutrientId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -918,7 +1636,34 @@ type Nutrient implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: FoodNutrientCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodNutrientFilter
   ): FoodNutrientsConnection!
+
+  """Reads and enables pagination through a set of `FoodNutrient`."""
+  foodNutrientsByNutrientIdList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `FoodNutrient`."""
+    orderBy: [FoodNutrientsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: FoodNutrientCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: FoodNutrientFilter
+  ): [FoodNutrient!]!
 }
 
 """Methods to use when ordering `FoodNutrient`."""
@@ -957,6 +1702,77 @@ input FoodNutrientCondition {
 
   """Checks for equality with the object’s `valuePerKcal` field."""
   valuePerKcal: Float
+}
+
+"""
+A filter to be used against `FoodNutrient` object types. All fields are combined with a logical ‘and.’
+"""
+input FoodNutrientFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `nutrientId` field."""
+  nutrientId: IntFilter
+
+  """Filter by the object’s `foodId` field."""
+  foodId: IntFilter
+
+  """Filter by the object’s `valuePerG` field."""
+  valuePerG: FloatFilter
+
+  """Filter by the object’s `valuePerKcal` field."""
+  valuePerKcal: FloatFilter
+
+  """Checks for all expressions in this list."""
+  and: [FoodNutrientFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [FoodNutrientFilter!]
+
+  """Negates the expression."""
+  not: FoodNutrientFilter
+}
+
+"""
+A filter to be used against Float fields. All fields are combined with a logical ‘and.’
+"""
+input FloatFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Float
+
+  """Not equal to the specified value."""
+  notEqualTo: Float
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Float
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Float
+
+  """Included in the specified list."""
+  in: [Float!]
+
+  """Not included in the specified list."""
+  notIn: [Float!]
+
+  """Less than the specified value."""
+  lessThan: Float
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Float
+
+  """Greater than the specified value."""
+  greaterThan: Float
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Float
 }
 
 """A `FoodNutrient` edge in the connection."""
@@ -999,7 +1815,7 @@ type FoodMeasureWeight implements Node {
   weightInG: Float
 
   """Reads a single `Food` that is related to this `FoodMeasureWeight`."""
-  food: Food
+  foodByFoodId: Food
 }
 
 """A `FoodMeasureWeight` edge in the connection."""
@@ -1049,6 +1865,35 @@ input FoodMeasureWeightCondition {
   weightInG: Float
 }
 
+"""
+A filter to be used against `FoodMeasureWeight` object types. All fields are combined with a logical ‘and.’
+"""
+input FoodMeasureWeightFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `foodId` field."""
+  foodId: IntFilter
+
+  """Filter by the object’s `numMeasures` field."""
+  numMeasures: FloatFilter
+
+  """Filter by the object’s `measure` field."""
+  measure: StringFilter
+
+  """Filter by the object’s `weightInG` field."""
+  weightInG: FloatFilter
+
+  """Checks for all expressions in this list."""
+  and: [FoodMeasureWeightFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [FoodMeasureWeightFilter!]
+
+  """Negates the expression."""
+  not: FoodMeasureWeightFilter
+}
+
 """A connection to a list of `RecipeFoodItem` values."""
 type RecipeFoodItemsConnection {
   """A list of `RecipeFoodItem` objects."""
@@ -1077,10 +1922,10 @@ type RecipeFoodItem implements Node {
   amountInG: Float
 
   """Reads a single `Recipe` that is related to this `RecipeFoodItem`."""
-  recipe: Recipe
+  recipeByRecipeId: Recipe
 
   """Reads a single `Food` that is related to this `RecipeFoodItem`."""
-  food: Food
+  foodByFoodId: Food
 }
 
 type Recipe implements Node {
@@ -1093,7 +1938,7 @@ type Recipe implements Node {
   description: String
 
   """Reads and enables pagination through a set of `RecipeFoodItem`."""
-  recipeFoodItems(
+  recipeFoodItemsByRecipeId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -1119,10 +1964,37 @@ type Recipe implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: RecipeFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RecipeFoodItemFilter
   ): RecipeFoodItemsConnection!
 
+  """Reads and enables pagination through a set of `RecipeFoodItem`."""
+  recipeFoodItemsByRecipeIdList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `RecipeFoodItem`."""
+    orderBy: [RecipeFoodItemsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: RecipeFoodItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: RecipeFoodItemFilter
+  ): [RecipeFoodItem!]!
+
   """Reads and enables pagination through a set of `CollectionRecipeItem`."""
-  collectionRecipeItems(
+  collectionRecipeItemsByRecipeId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -1148,7 +2020,34 @@ type Recipe implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CollectionRecipeItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionRecipeItemFilter
   ): CollectionRecipeItemsConnection!
+
+  """Reads and enables pagination through a set of `CollectionRecipeItem`."""
+  collectionRecipeItemsByRecipeIdList(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Skip the first `n` values."""
+    offset: Int
+
+    """The method to use when ordering `CollectionRecipeItem`."""
+    orderBy: [CollectionRecipeItemsOrderBy!]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CollectionRecipeItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CollectionRecipeItemFilter
+  ): [CollectionRecipeItem!]!
 }
 
 """Methods to use when ordering `RecipeFoodItem`."""
@@ -1184,6 +2083,32 @@ input RecipeFoodItemCondition {
   amountInG: Float
 }
 
+"""
+A filter to be used against `RecipeFoodItem` object types. All fields are combined with a logical ‘and.’
+"""
+input RecipeFoodItemFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `recipeId` field."""
+  recipeId: IntFilter
+
+  """Filter by the object’s `foodId` field."""
+  foodId: IntFilter
+
+  """Filter by the object’s `amountInG` field."""
+  amountInG: FloatFilter
+
+  """Checks for all expressions in this list."""
+  and: [RecipeFoodItemFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [RecipeFoodItemFilter!]
+
+  """Negates the expression."""
+  not: RecipeFoodItemFilter
+}
+
 """A connection to a list of `CollectionRecipeItem` values."""
 type CollectionRecipeItemsConnection {
   """A list of `CollectionRecipeItem` objects."""
@@ -1215,12 +2140,12 @@ type CollectionRecipeItem implements Node {
   """
   Reads a single `Recipe` that is related to this `CollectionRecipeItem`.
   """
-  recipe: Recipe
+  recipeByRecipeId: Recipe
 
   """
   Reads a single `Collection` that is related to this `CollectionRecipeItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 }
 
 """A `CollectionRecipeItem` edge in the connection."""
@@ -1260,6 +2185,29 @@ input CollectionRecipeItemCondition {
   collectionId: Int
 }
 
+"""
+A filter to be used against `CollectionRecipeItem` object types. All fields are combined with a logical ‘and.’
+"""
+input CollectionRecipeItemFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `recipeId` field."""
+  recipeId: IntFilter
+
+  """Filter by the object’s `collectionId` field."""
+  collectionId: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [CollectionRecipeItemFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [CollectionRecipeItemFilter!]
+
+  """Negates the expression."""
+  not: CollectionRecipeItemFilter
+}
+
 """A `RecipeFoodItem` edge in the connection."""
 type RecipeFoodItemsEdge {
   """A cursor for use in pagination."""
@@ -1295,6 +2243,29 @@ input CollectionFoodItemCondition {
 
   """Checks for equality with the object’s `collectionId` field."""
   collectionId: Int
+}
+
+"""
+A filter to be used against `CollectionFoodItem` object types. All fields are combined with a logical ‘and.’
+"""
+input CollectionFoodItemFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `foodId` field."""
+  foodId: IntFilter
+
+  """Filter by the object’s `collectionId` field."""
+  collectionId: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [CollectionFoodItemFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [CollectionFoodItemFilter!]
+
+  """Negates the expression."""
+  not: CollectionFoodItemFilter
 }
 
 """A `CollectionFoodItem` edge in the connection."""
@@ -1336,7 +2307,7 @@ type CollectionCollectionItem implements Node {
   """
   Reads a single `Collection` that is related to this `CollectionCollectionItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 }
 
 """A `CollectionCollectionItem` edge in the connection."""
@@ -1369,6 +2340,26 @@ input CollectionCollectionItemCondition {
 
   """Checks for equality with the object’s `collectionId` field."""
   collectionId: Int
+}
+
+"""
+A filter to be used against `CollectionCollectionItem` object types. All fields are combined with a logical ‘and.’
+"""
+input CollectionCollectionItemFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `collectionId` field."""
+  collectionId: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [CollectionCollectionItemFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [CollectionCollectionItemFilter!]
+
+  """Negates the expression."""
+  not: CollectionCollectionItemFilter
 }
 
 """A `Collection` edge in the connection."""
@@ -1406,6 +2397,29 @@ input CollectionCondition {
 
   """Checks for equality with the object’s `description` field."""
   description: String
+}
+
+"""
+A filter to be used against `Collection` object types. All fields are combined with a logical ‘and.’
+"""
+input CollectionFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `description` field."""
+  description: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [CollectionFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [CollectionFilter!]
+
+  """Negates the expression."""
+  not: CollectionFilter
 }
 
 """A connection to a list of `FoodGroup` values."""
@@ -1455,6 +2469,26 @@ input FoodGroupCondition {
 
   """Checks for equality with the object’s `name` field."""
   name: String
+}
+
+"""
+A filter to be used against `FoodGroup` object types. All fields are combined with a logical ‘and.’
+"""
+input FoodGroupFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [FoodGroupFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [FoodGroupFilter!]
+
+  """Negates the expression."""
+  not: FoodGroupFilter
 }
 
 """A connection to a list of `Nutrient` values."""
@@ -1511,6 +2545,29 @@ input NutrientCondition {
   name: String
 }
 
+"""
+A filter to be used against `Nutrient` object types. All fields are combined with a logical ‘and.’
+"""
+input NutrientFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `unit` field."""
+  unit: StringFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [NutrientFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [NutrientFilter!]
+
+  """Negates the expression."""
+  not: NutrientFilter
+}
+
 """A connection to a list of `Recipe` values."""
 type RecipesConnection {
   """A list of `Recipe` objects."""
@@ -1562,6 +2619,29 @@ input RecipeCondition {
 
   """Checks for equality with the object’s `description` field."""
   description: String
+}
+
+"""
+A filter to be used against `Recipe` object types. All fields are combined with a logical ‘and.’
+"""
+input RecipeFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `description` field."""
+  description: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [RecipeFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [RecipeFilter!]
+
+  """Negates the expression."""
+  not: RecipeFilter
 }
 
 """
@@ -1659,14 +2739,6 @@ type Mutation {
   """
   Updates a single `Collection` using its globally unique id and a patch.
   """
-  updateCollectionByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCollectionByNodeIdInput!
-  ): UpdateCollectionPayload
-
-  """Updates a single `Collection` using a unique key and a patch."""
   updateCollection(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1674,18 +2746,16 @@ type Mutation {
     input: UpdateCollectionInput!
   ): UpdateCollectionPayload
 
-  """
-  Updates a single `CollectionCollectionItem` using its globally unique id and a patch.
-  """
-  updateCollectionCollectionItemByNodeId(
+  """Updates a single `Collection` using a unique key and a patch."""
+  updateCollectionById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCollectionCollectionItemByNodeIdInput!
-  ): UpdateCollectionCollectionItemPayload
+    input: UpdateCollectionByIdInput!
+  ): UpdateCollectionPayload
 
   """
-  Updates a single `CollectionCollectionItem` using a unique key and a patch.
+  Updates a single `CollectionCollectionItem` using its globally unique id and a patch.
   """
   updateCollectionCollectionItem(
     """
@@ -1695,21 +2765,31 @@ type Mutation {
   ): UpdateCollectionCollectionItemPayload
 
   """
-  Updates a single `CollectionFoodItem` using its globally unique id and a patch.
+  Updates a single `CollectionCollectionItem` using a unique key and a patch.
   """
-  updateCollectionFoodItemByNodeId(
+  updateCollectionCollectionItemById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCollectionFoodItemByNodeIdInput!
-  ): UpdateCollectionFoodItemPayload
+    input: UpdateCollectionCollectionItemByIdInput!
+  ): UpdateCollectionCollectionItemPayload
 
-  """Updates a single `CollectionFoodItem` using a unique key and a patch."""
+  """
+  Updates a single `CollectionFoodItem` using its globally unique id and a patch.
+  """
   updateCollectionFoodItem(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateCollectionFoodItemInput!
+  ): UpdateCollectionFoodItemPayload
+
+  """Updates a single `CollectionFoodItem` using a unique key and a patch."""
+  updateCollectionFoodItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCollectionFoodItemByIdInput!
   ): UpdateCollectionFoodItemPayload
 
   """Updates a single `CollectionFoodItem` using a unique key and a patch."""
@@ -1723,21 +2803,21 @@ type Mutation {
   """
   Updates a single `CollectionRecipeItem` using its globally unique id and a patch.
   """
-  updateCollectionRecipeItemByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCollectionRecipeItemByNodeIdInput!
-  ): UpdateCollectionRecipeItemPayload
-
-  """
-  Updates a single `CollectionRecipeItem` using a unique key and a patch.
-  """
   updateCollectionRecipeItem(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateCollectionRecipeItemInput!
+  ): UpdateCollectionRecipeItemPayload
+
+  """
+  Updates a single `CollectionRecipeItem` using a unique key and a patch.
+  """
+  updateCollectionRecipeItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCollectionRecipeItemByIdInput!
   ): UpdateCollectionRecipeItemPayload
 
   """
@@ -1751,14 +2831,6 @@ type Mutation {
   ): UpdateCollectionRecipeItemPayload
 
   """Updates a single `Food` using its globally unique id and a patch."""
-  updateFoodByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateFoodByNodeIdInput!
-  ): UpdateFoodPayload
-
-  """Updates a single `Food` using a unique key and a patch."""
   updateFood(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1766,15 +2838,15 @@ type Mutation {
     input: UpdateFoodInput!
   ): UpdateFoodPayload
 
-  """Updates a single `FoodGroup` using its globally unique id and a patch."""
-  updateFoodGroupByNodeId(
+  """Updates a single `Food` using a unique key and a patch."""
+  updateFoodById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateFoodGroupByNodeIdInput!
-  ): UpdateFoodGroupPayload
+    input: UpdateFoodByIdInput!
+  ): UpdateFoodPayload
 
-  """Updates a single `FoodGroup` using a unique key and a patch."""
+  """Updates a single `FoodGroup` using its globally unique id and a patch."""
   updateFoodGroup(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1782,17 +2854,17 @@ type Mutation {
     input: UpdateFoodGroupInput!
   ): UpdateFoodGroupPayload
 
-  """
-  Updates a single `FoodMeasureWeight` using its globally unique id and a patch.
-  """
-  updateFoodMeasureWeightByNodeId(
+  """Updates a single `FoodGroup` using a unique key and a patch."""
+  updateFoodGroupById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateFoodMeasureWeightByNodeIdInput!
-  ): UpdateFoodMeasureWeightPayload
+    input: UpdateFoodGroupByIdInput!
+  ): UpdateFoodGroupPayload
 
-  """Updates a single `FoodMeasureWeight` using a unique key and a patch."""
+  """
+  Updates a single `FoodMeasureWeight` using its globally unique id and a patch.
+  """
   updateFoodMeasureWeight(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1800,22 +2872,30 @@ type Mutation {
     input: UpdateFoodMeasureWeightInput!
   ): UpdateFoodMeasureWeightPayload
 
-  """
-  Updates a single `FoodNutrient` using its globally unique id and a patch.
-  """
-  updateFoodNutrientByNodeId(
+  """Updates a single `FoodMeasureWeight` using a unique key and a patch."""
+  updateFoodMeasureWeightById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateFoodNutrientByNodeIdInput!
-  ): UpdateFoodNutrientPayload
+    input: UpdateFoodMeasureWeightByIdInput!
+  ): UpdateFoodMeasureWeightPayload
 
-  """Updates a single `FoodNutrient` using a unique key and a patch."""
+  """
+  Updates a single `FoodNutrient` using its globally unique id and a patch.
+  """
   updateFoodNutrient(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateFoodNutrientInput!
+  ): UpdateFoodNutrientPayload
+
+  """Updates a single `FoodNutrient` using a unique key and a patch."""
+  updateFoodNutrientById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateFoodNutrientByIdInput!
   ): UpdateFoodNutrientPayload
 
   """Updates a single `FoodNutrient` using a unique key and a patch."""
@@ -1827,14 +2907,6 @@ type Mutation {
   ): UpdateFoodNutrientPayload
 
   """Updates a single `Nutrient` using its globally unique id and a patch."""
-  updateNutrientByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateNutrientByNodeIdInput!
-  ): UpdateNutrientPayload
-
-  """Updates a single `Nutrient` using a unique key and a patch."""
   updateNutrient(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1842,15 +2914,15 @@ type Mutation {
     input: UpdateNutrientInput!
   ): UpdateNutrientPayload
 
-  """Updates a single `Recipe` using its globally unique id and a patch."""
-  updateRecipeByNodeId(
+  """Updates a single `Nutrient` using a unique key and a patch."""
+  updateNutrientById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateRecipeByNodeIdInput!
-  ): UpdateRecipePayload
+    input: UpdateNutrientByIdInput!
+  ): UpdateNutrientPayload
 
-  """Updates a single `Recipe` using a unique key and a patch."""
+  """Updates a single `Recipe` using its globally unique id and a patch."""
   updateRecipe(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1858,22 +2930,30 @@ type Mutation {
     input: UpdateRecipeInput!
   ): UpdateRecipePayload
 
-  """
-  Updates a single `RecipeFoodItem` using its globally unique id and a patch.
-  """
-  updateRecipeFoodItemByNodeId(
+  """Updates a single `Recipe` using a unique key and a patch."""
+  updateRecipeById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateRecipeFoodItemByNodeIdInput!
-  ): UpdateRecipeFoodItemPayload
+    input: UpdateRecipeByIdInput!
+  ): UpdateRecipePayload
 
-  """Updates a single `RecipeFoodItem` using a unique key and a patch."""
+  """
+  Updates a single `RecipeFoodItem` using its globally unique id and a patch.
+  """
   updateRecipeFoodItem(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateRecipeFoodItemInput!
+  ): UpdateRecipeFoodItemPayload
+
+  """Updates a single `RecipeFoodItem` using a unique key and a patch."""
+  updateRecipeFoodItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateRecipeFoodItemByIdInput!
   ): UpdateRecipeFoodItemPayload
 
   """Updates a single `RecipeFoodItem` using a unique key and a patch."""
@@ -1885,14 +2965,6 @@ type Mutation {
   ): UpdateRecipeFoodItemPayload
 
   """Deletes a single `Collection` using its globally unique id."""
-  deleteCollectionByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCollectionByNodeIdInput!
-  ): DeleteCollectionPayload
-
-  """Deletes a single `Collection` using a unique key."""
   deleteCollection(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1900,17 +2972,17 @@ type Mutation {
     input: DeleteCollectionInput!
   ): DeleteCollectionPayload
 
-  """
-  Deletes a single `CollectionCollectionItem` using its globally unique id.
-  """
-  deleteCollectionCollectionItemByNodeId(
+  """Deletes a single `Collection` using a unique key."""
+  deleteCollectionById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteCollectionCollectionItemByNodeIdInput!
-  ): DeleteCollectionCollectionItemPayload
+    input: DeleteCollectionByIdInput!
+  ): DeleteCollectionPayload
 
-  """Deletes a single `CollectionCollectionItem` using a unique key."""
+  """
+  Deletes a single `CollectionCollectionItem` using its globally unique id.
+  """
   deleteCollectionCollectionItem(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1918,20 +2990,28 @@ type Mutation {
     input: DeleteCollectionCollectionItemInput!
   ): DeleteCollectionCollectionItemPayload
 
-  """Deletes a single `CollectionFoodItem` using its globally unique id."""
-  deleteCollectionFoodItemByNodeId(
+  """Deletes a single `CollectionCollectionItem` using a unique key."""
+  deleteCollectionCollectionItemById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteCollectionFoodItemByNodeIdInput!
-  ): DeleteCollectionFoodItemPayload
+    input: DeleteCollectionCollectionItemByIdInput!
+  ): DeleteCollectionCollectionItemPayload
 
-  """Deletes a single `CollectionFoodItem` using a unique key."""
+  """Deletes a single `CollectionFoodItem` using its globally unique id."""
   deleteCollectionFoodItem(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteCollectionFoodItemInput!
+  ): DeleteCollectionFoodItemPayload
+
+  """Deletes a single `CollectionFoodItem` using a unique key."""
+  deleteCollectionFoodItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCollectionFoodItemByIdInput!
   ): DeleteCollectionFoodItemPayload
 
   """Deletes a single `CollectionFoodItem` using a unique key."""
@@ -1943,19 +3023,19 @@ type Mutation {
   ): DeleteCollectionFoodItemPayload
 
   """Deletes a single `CollectionRecipeItem` using its globally unique id."""
-  deleteCollectionRecipeItemByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCollectionRecipeItemByNodeIdInput!
-  ): DeleteCollectionRecipeItemPayload
-
-  """Deletes a single `CollectionRecipeItem` using a unique key."""
   deleteCollectionRecipeItem(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteCollectionRecipeItemInput!
+  ): DeleteCollectionRecipeItemPayload
+
+  """Deletes a single `CollectionRecipeItem` using a unique key."""
+  deleteCollectionRecipeItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCollectionRecipeItemByIdInput!
   ): DeleteCollectionRecipeItemPayload
 
   """Deletes a single `CollectionRecipeItem` using a unique key."""
@@ -1967,14 +3047,6 @@ type Mutation {
   ): DeleteCollectionRecipeItemPayload
 
   """Deletes a single `Food` using its globally unique id."""
-  deleteFoodByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteFoodByNodeIdInput!
-  ): DeleteFoodPayload
-
-  """Deletes a single `Food` using a unique key."""
   deleteFood(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1982,15 +3054,15 @@ type Mutation {
     input: DeleteFoodInput!
   ): DeleteFoodPayload
 
-  """Deletes a single `FoodGroup` using its globally unique id."""
-  deleteFoodGroupByNodeId(
+  """Deletes a single `Food` using a unique key."""
+  deleteFoodById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteFoodGroupByNodeIdInput!
-  ): DeleteFoodGroupPayload
+    input: DeleteFoodByIdInput!
+  ): DeleteFoodPayload
 
-  """Deletes a single `FoodGroup` using a unique key."""
+  """Deletes a single `FoodGroup` using its globally unique id."""
   deleteFoodGroup(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -1998,15 +3070,15 @@ type Mutation {
     input: DeleteFoodGroupInput!
   ): DeleteFoodGroupPayload
 
-  """Deletes a single `FoodMeasureWeight` using its globally unique id."""
-  deleteFoodMeasureWeightByNodeId(
+  """Deletes a single `FoodGroup` using a unique key."""
+  deleteFoodGroupById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteFoodMeasureWeightByNodeIdInput!
-  ): DeleteFoodMeasureWeightPayload
+    input: DeleteFoodGroupByIdInput!
+  ): DeleteFoodGroupPayload
 
-  """Deletes a single `FoodMeasureWeight` using a unique key."""
+  """Deletes a single `FoodMeasureWeight` using its globally unique id."""
   deleteFoodMeasureWeight(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2014,20 +3086,28 @@ type Mutation {
     input: DeleteFoodMeasureWeightInput!
   ): DeleteFoodMeasureWeightPayload
 
-  """Deletes a single `FoodNutrient` using its globally unique id."""
-  deleteFoodNutrientByNodeId(
+  """Deletes a single `FoodMeasureWeight` using a unique key."""
+  deleteFoodMeasureWeightById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteFoodNutrientByNodeIdInput!
-  ): DeleteFoodNutrientPayload
+    input: DeleteFoodMeasureWeightByIdInput!
+  ): DeleteFoodMeasureWeightPayload
 
-  """Deletes a single `FoodNutrient` using a unique key."""
+  """Deletes a single `FoodNutrient` using its globally unique id."""
   deleteFoodNutrient(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteFoodNutrientInput!
+  ): DeleteFoodNutrientPayload
+
+  """Deletes a single `FoodNutrient` using a unique key."""
+  deleteFoodNutrientById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteFoodNutrientByIdInput!
   ): DeleteFoodNutrientPayload
 
   """Deletes a single `FoodNutrient` using a unique key."""
@@ -2039,14 +3119,6 @@ type Mutation {
   ): DeleteFoodNutrientPayload
 
   """Deletes a single `Nutrient` using its globally unique id."""
-  deleteNutrientByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteNutrientByNodeIdInput!
-  ): DeleteNutrientPayload
-
-  """Deletes a single `Nutrient` using a unique key."""
   deleteNutrient(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2054,15 +3126,15 @@ type Mutation {
     input: DeleteNutrientInput!
   ): DeleteNutrientPayload
 
-  """Deletes a single `Recipe` using its globally unique id."""
-  deleteRecipeByNodeId(
+  """Deletes a single `Nutrient` using a unique key."""
+  deleteNutrientById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteRecipeByNodeIdInput!
-  ): DeleteRecipePayload
+    input: DeleteNutrientByIdInput!
+  ): DeleteNutrientPayload
 
-  """Deletes a single `Recipe` using a unique key."""
+  """Deletes a single `Recipe` using its globally unique id."""
   deleteRecipe(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -2070,20 +3142,28 @@ type Mutation {
     input: DeleteRecipeInput!
   ): DeleteRecipePayload
 
-  """Deletes a single `RecipeFoodItem` using its globally unique id."""
-  deleteRecipeFoodItemByNodeId(
+  """Deletes a single `Recipe` using a unique key."""
+  deleteRecipeById(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteRecipeFoodItemByNodeIdInput!
-  ): DeleteRecipeFoodItemPayload
+    input: DeleteRecipeByIdInput!
+  ): DeleteRecipePayload
 
-  """Deletes a single `RecipeFoodItem` using a unique key."""
+  """Deletes a single `RecipeFoodItem` using its globally unique id."""
   deleteRecipeFoodItem(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteRecipeFoodItemInput!
+  ): DeleteRecipeFoodItemPayload
+
+  """Deletes a single `RecipeFoodItem` using a unique key."""
+  deleteRecipeFoodItemById(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteRecipeFoodItemByIdInput!
   ): DeleteRecipeFoodItemPayload
 
   """Deletes a single `RecipeFoodItem` using a unique key."""
@@ -2155,7 +3235,7 @@ type CreateCollectionCollectionItemPayload {
   """
   Reads a single `Collection` that is related to this `CollectionCollectionItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 
   """An edge for our `CollectionCollectionItem`. May be used by Relay 1."""
   collectionCollectionItemEdge(
@@ -2198,12 +3278,12 @@ type CreateCollectionFoodItemPayload {
   query: Query
 
   """Reads a single `Food` that is related to this `CollectionFoodItem`."""
-  food: Food
+  foodByFoodId: Food
 
   """
   Reads a single `Collection` that is related to this `CollectionFoodItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 
   """An edge for our `CollectionFoodItem`. May be used by Relay 1."""
   collectionFoodItemEdge(
@@ -2249,12 +3329,12 @@ type CreateCollectionRecipeItemPayload {
   """
   Reads a single `Recipe` that is related to this `CollectionRecipeItem`.
   """
-  recipe: Recipe
+  recipeByRecipeId: Recipe
 
   """
   Reads a single `Collection` that is related to this `CollectionRecipeItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 
   """An edge for our `CollectionRecipeItem`. May be used by Relay 1."""
   collectionRecipeItemEdge(
@@ -2298,7 +3378,7 @@ type CreateFoodPayload {
   query: Query
 
   """Reads a single `FoodGroup` that is related to this `Food`."""
-  foodGroup: FoodGroup
+  foodGroupByFoodGroupId: FoodGroup
 
   """An edge for our `Food`. May be used by Relay 1."""
   foodEdge(
@@ -2384,7 +3464,7 @@ type CreateFoodMeasureWeightPayload {
   query: Query
 
   """Reads a single `Food` that is related to this `FoodMeasureWeight`."""
-  food: Food
+  foodByFoodId: Food
 
   """An edge for our `FoodMeasureWeight`. May be used by Relay 1."""
   foodMeasureWeightEdge(
@@ -2430,10 +3510,10 @@ type CreateFoodNutrientPayload {
   query: Query
 
   """Reads a single `Nutrient` that is related to this `FoodNutrient`."""
-  nutrient: Nutrient
+  nutrientByNutrientId: Nutrient
 
   """Reads a single `Food` that is related to this `FoodNutrient`."""
-  food: Food
+  foodByFoodId: Food
 
   """An edge for our `FoodNutrient`. May be used by Relay 1."""
   foodNutrientEdge(
@@ -2561,10 +3641,10 @@ type CreateRecipeFoodItemPayload {
   query: Query
 
   """Reads a single `Recipe` that is related to this `RecipeFoodItem`."""
-  recipe: Recipe
+  recipeByRecipeId: Recipe
 
   """Reads a single `Food` that is related to this `RecipeFoodItem`."""
-  food: Food
+  foodByFoodId: Food
 
   """An edge for our `RecipeFoodItem`. May be used by Relay 1."""
   recipeFoodItemEdge(
@@ -2615,8 +3695,8 @@ type UpdateCollectionPayload {
   ): CollectionsEdge
 }
 
-"""All input for the `updateCollectionByNodeId` mutation."""
-input UpdateCollectionByNodeIdInput {
+"""All input for the `updateCollection` mutation."""
+input UpdateCollectionInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -2631,7 +3711,7 @@ input UpdateCollectionByNodeIdInput {
   """
   An object where the defined keys will be set on the `Collection` being updated.
   """
-  patch: CollectionPatch!
+  collectionPatch: CollectionPatch!
 }
 
 """
@@ -2642,8 +3722,8 @@ input CollectionPatch {
   description: String
 }
 
-"""All input for the `updateCollection` mutation."""
-input UpdateCollectionInput {
+"""All input for the `updateCollectionById` mutation."""
+input UpdateCollectionByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -2653,7 +3733,7 @@ input UpdateCollectionInput {
   """
   An object where the defined keys will be set on the `Collection` being updated.
   """
-  patch: CollectionPatch!
+  collectionPatch: CollectionPatch!
   id: Int!
 }
 
@@ -2676,7 +3756,7 @@ type UpdateCollectionCollectionItemPayload {
   """
   Reads a single `Collection` that is related to this `CollectionCollectionItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 
   """An edge for our `CollectionCollectionItem`. May be used by Relay 1."""
   collectionCollectionItemEdge(
@@ -2685,8 +3765,8 @@ type UpdateCollectionCollectionItemPayload {
   ): CollectionCollectionItemsEdge
 }
 
-"""All input for the `updateCollectionCollectionItemByNodeId` mutation."""
-input UpdateCollectionCollectionItemByNodeIdInput {
+"""All input for the `updateCollectionCollectionItem` mutation."""
+input UpdateCollectionCollectionItemInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -2701,7 +3781,7 @@ input UpdateCollectionCollectionItemByNodeIdInput {
   """
   An object where the defined keys will be set on the `CollectionCollectionItem` being updated.
   """
-  patch: CollectionCollectionItemPatch!
+  collectionCollectionItemPatch: CollectionCollectionItemPatch!
 }
 
 """
@@ -2711,8 +3791,8 @@ input CollectionCollectionItemPatch {
   collectionId: Int
 }
 
-"""All input for the `updateCollectionCollectionItem` mutation."""
-input UpdateCollectionCollectionItemInput {
+"""All input for the `updateCollectionCollectionItemById` mutation."""
+input UpdateCollectionCollectionItemByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -2722,7 +3802,7 @@ input UpdateCollectionCollectionItemInput {
   """
   An object where the defined keys will be set on the `CollectionCollectionItem` being updated.
   """
-  patch: CollectionCollectionItemPatch!
+  collectionCollectionItemPatch: CollectionCollectionItemPatch!
   id: Int!
 }
 
@@ -2743,12 +3823,12 @@ type UpdateCollectionFoodItemPayload {
   query: Query
 
   """Reads a single `Food` that is related to this `CollectionFoodItem`."""
-  food: Food
+  foodByFoodId: Food
 
   """
   Reads a single `Collection` that is related to this `CollectionFoodItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 
   """An edge for our `CollectionFoodItem`. May be used by Relay 1."""
   collectionFoodItemEdge(
@@ -2757,8 +3837,8 @@ type UpdateCollectionFoodItemPayload {
   ): CollectionFoodItemsEdge
 }
 
-"""All input for the `updateCollectionFoodItemByNodeId` mutation."""
-input UpdateCollectionFoodItemByNodeIdInput {
+"""All input for the `updateCollectionFoodItem` mutation."""
+input UpdateCollectionFoodItemInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -2773,7 +3853,7 @@ input UpdateCollectionFoodItemByNodeIdInput {
   """
   An object where the defined keys will be set on the `CollectionFoodItem` being updated.
   """
-  patch: CollectionFoodItemPatch!
+  collectionFoodItemPatch: CollectionFoodItemPatch!
 }
 
 """
@@ -2784,8 +3864,8 @@ input CollectionFoodItemPatch {
   collectionId: Int
 }
 
-"""All input for the `updateCollectionFoodItem` mutation."""
-input UpdateCollectionFoodItemInput {
+"""All input for the `updateCollectionFoodItemById` mutation."""
+input UpdateCollectionFoodItemByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -2795,7 +3875,7 @@ input UpdateCollectionFoodItemInput {
   """
   An object where the defined keys will be set on the `CollectionFoodItem` being updated.
   """
-  patch: CollectionFoodItemPatch!
+  collectionFoodItemPatch: CollectionFoodItemPatch!
   id: Int!
 }
 
@@ -2812,7 +3892,7 @@ input UpdateCollectionFoodItemByFoodIdAndCollectionIdInput {
   """
   An object where the defined keys will be set on the `CollectionFoodItem` being updated.
   """
-  patch: CollectionFoodItemPatch!
+  collectionFoodItemPatch: CollectionFoodItemPatch!
   foodId: Int!
   collectionId: Int!
 }
@@ -2836,12 +3916,12 @@ type UpdateCollectionRecipeItemPayload {
   """
   Reads a single `Recipe` that is related to this `CollectionRecipeItem`.
   """
-  recipe: Recipe
+  recipeByRecipeId: Recipe
 
   """
   Reads a single `Collection` that is related to this `CollectionRecipeItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 
   """An edge for our `CollectionRecipeItem`. May be used by Relay 1."""
   collectionRecipeItemEdge(
@@ -2850,8 +3930,8 @@ type UpdateCollectionRecipeItemPayload {
   ): CollectionRecipeItemsEdge
 }
 
-"""All input for the `updateCollectionRecipeItemByNodeId` mutation."""
-input UpdateCollectionRecipeItemByNodeIdInput {
+"""All input for the `updateCollectionRecipeItem` mutation."""
+input UpdateCollectionRecipeItemInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -2866,7 +3946,7 @@ input UpdateCollectionRecipeItemByNodeIdInput {
   """
   An object where the defined keys will be set on the `CollectionRecipeItem` being updated.
   """
-  patch: CollectionRecipeItemPatch!
+  collectionRecipeItemPatch: CollectionRecipeItemPatch!
 }
 
 """
@@ -2877,8 +3957,8 @@ input CollectionRecipeItemPatch {
   collectionId: Int
 }
 
-"""All input for the `updateCollectionRecipeItem` mutation."""
-input UpdateCollectionRecipeItemInput {
+"""All input for the `updateCollectionRecipeItemById` mutation."""
+input UpdateCollectionRecipeItemByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -2888,7 +3968,7 @@ input UpdateCollectionRecipeItemInput {
   """
   An object where the defined keys will be set on the `CollectionRecipeItem` being updated.
   """
-  patch: CollectionRecipeItemPatch!
+  collectionRecipeItemPatch: CollectionRecipeItemPatch!
   id: Int!
 }
 
@@ -2905,7 +3985,7 @@ input UpdateCollectionRecipeItemByRecipeIdAndCollectionIdInput {
   """
   An object where the defined keys will be set on the `CollectionRecipeItem` being updated.
   """
-  patch: CollectionRecipeItemPatch!
+  collectionRecipeItemPatch: CollectionRecipeItemPatch!
   recipeId: Int!
   collectionId: Int!
 }
@@ -2927,7 +4007,7 @@ type UpdateFoodPayload {
   query: Query
 
   """Reads a single `FoodGroup` that is related to this `Food`."""
-  foodGroup: FoodGroup
+  foodGroupByFoodGroupId: FoodGroup
 
   """An edge for our `Food`. May be used by Relay 1."""
   foodEdge(
@@ -2936,8 +4016,8 @@ type UpdateFoodPayload {
   ): FoodsEdge
 }
 
-"""All input for the `updateFoodByNodeId` mutation."""
-input UpdateFoodByNodeIdInput {
+"""All input for the `updateFood` mutation."""
+input UpdateFoodInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -2952,7 +4032,7 @@ input UpdateFoodByNodeIdInput {
   """
   An object where the defined keys will be set on the `Food` being updated.
   """
-  patch: FoodPatch!
+  foodPatch: FoodPatch!
 }
 
 """Represents an update to a `Food`. Fields that are set will be updated."""
@@ -2963,8 +4043,8 @@ input FoodPatch {
   commonName: String
 }
 
-"""All input for the `updateFood` mutation."""
-input UpdateFoodInput {
+"""All input for the `updateFoodById` mutation."""
+input UpdateFoodByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -2974,7 +4054,7 @@ input UpdateFoodInput {
   """
   An object where the defined keys will be set on the `Food` being updated.
   """
-  patch: FoodPatch!
+  foodPatch: FoodPatch!
   id: Int!
 }
 
@@ -3001,8 +4081,8 @@ type UpdateFoodGroupPayload {
   ): FoodGroupsEdge
 }
 
-"""All input for the `updateFoodGroupByNodeId` mutation."""
-input UpdateFoodGroupByNodeIdInput {
+"""All input for the `updateFoodGroup` mutation."""
+input UpdateFoodGroupInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3017,7 +4097,7 @@ input UpdateFoodGroupByNodeIdInput {
   """
   An object where the defined keys will be set on the `FoodGroup` being updated.
   """
-  patch: FoodGroupPatch!
+  foodGroupPatch: FoodGroupPatch!
 }
 
 """
@@ -3027,8 +4107,8 @@ input FoodGroupPatch {
   name: String
 }
 
-"""All input for the `updateFoodGroup` mutation."""
-input UpdateFoodGroupInput {
+"""All input for the `updateFoodGroupById` mutation."""
+input UpdateFoodGroupByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3038,7 +4118,7 @@ input UpdateFoodGroupInput {
   """
   An object where the defined keys will be set on the `FoodGroup` being updated.
   """
-  patch: FoodGroupPatch!
+  foodGroupPatch: FoodGroupPatch!
   id: Int!
 }
 
@@ -3059,7 +4139,7 @@ type UpdateFoodMeasureWeightPayload {
   query: Query
 
   """Reads a single `Food` that is related to this `FoodMeasureWeight`."""
-  food: Food
+  foodByFoodId: Food
 
   """An edge for our `FoodMeasureWeight`. May be used by Relay 1."""
   foodMeasureWeightEdge(
@@ -3068,8 +4148,8 @@ type UpdateFoodMeasureWeightPayload {
   ): FoodMeasureWeightsEdge
 }
 
-"""All input for the `updateFoodMeasureWeightByNodeId` mutation."""
-input UpdateFoodMeasureWeightByNodeIdInput {
+"""All input for the `updateFoodMeasureWeight` mutation."""
+input UpdateFoodMeasureWeightInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3084,7 +4164,7 @@ input UpdateFoodMeasureWeightByNodeIdInput {
   """
   An object where the defined keys will be set on the `FoodMeasureWeight` being updated.
   """
-  patch: FoodMeasureWeightPatch!
+  foodMeasureWeightPatch: FoodMeasureWeightPatch!
 }
 
 """
@@ -3097,8 +4177,8 @@ input FoodMeasureWeightPatch {
   weightInG: Float
 }
 
-"""All input for the `updateFoodMeasureWeight` mutation."""
-input UpdateFoodMeasureWeightInput {
+"""All input for the `updateFoodMeasureWeightById` mutation."""
+input UpdateFoodMeasureWeightByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3108,7 +4188,7 @@ input UpdateFoodMeasureWeightInput {
   """
   An object where the defined keys will be set on the `FoodMeasureWeight` being updated.
   """
-  patch: FoodMeasureWeightPatch!
+  foodMeasureWeightPatch: FoodMeasureWeightPatch!
   id: Int!
 }
 
@@ -3129,10 +4209,10 @@ type UpdateFoodNutrientPayload {
   query: Query
 
   """Reads a single `Nutrient` that is related to this `FoodNutrient`."""
-  nutrient: Nutrient
+  nutrientByNutrientId: Nutrient
 
   """Reads a single `Food` that is related to this `FoodNutrient`."""
-  food: Food
+  foodByFoodId: Food
 
   """An edge for our `FoodNutrient`. May be used by Relay 1."""
   foodNutrientEdge(
@@ -3141,8 +4221,8 @@ type UpdateFoodNutrientPayload {
   ): FoodNutrientsEdge
 }
 
-"""All input for the `updateFoodNutrientByNodeId` mutation."""
-input UpdateFoodNutrientByNodeIdInput {
+"""All input for the `updateFoodNutrient` mutation."""
+input UpdateFoodNutrientInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3157,7 +4237,7 @@ input UpdateFoodNutrientByNodeIdInput {
   """
   An object where the defined keys will be set on the `FoodNutrient` being updated.
   """
-  patch: FoodNutrientPatch!
+  foodNutrientPatch: FoodNutrientPatch!
 }
 
 """
@@ -3170,8 +4250,8 @@ input FoodNutrientPatch {
   valuePerKcal: Float
 }
 
-"""All input for the `updateFoodNutrient` mutation."""
-input UpdateFoodNutrientInput {
+"""All input for the `updateFoodNutrientById` mutation."""
+input UpdateFoodNutrientByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3181,7 +4261,7 @@ input UpdateFoodNutrientInput {
   """
   An object where the defined keys will be set on the `FoodNutrient` being updated.
   """
-  patch: FoodNutrientPatch!
+  foodNutrientPatch: FoodNutrientPatch!
   id: Int!
 }
 
@@ -3196,7 +4276,7 @@ input UpdateFoodNutrientByNutrientIdAndFoodIdInput {
   """
   An object where the defined keys will be set on the `FoodNutrient` being updated.
   """
-  patch: FoodNutrientPatch!
+  foodNutrientPatch: FoodNutrientPatch!
   nutrientId: Int!
   foodId: Int!
 }
@@ -3224,8 +4304,8 @@ type UpdateNutrientPayload {
   ): NutrientsEdge
 }
 
-"""All input for the `updateNutrientByNodeId` mutation."""
-input UpdateNutrientByNodeIdInput {
+"""All input for the `updateNutrient` mutation."""
+input UpdateNutrientInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3240,7 +4320,7 @@ input UpdateNutrientByNodeIdInput {
   """
   An object where the defined keys will be set on the `Nutrient` being updated.
   """
-  patch: NutrientPatch!
+  nutrientPatch: NutrientPatch!
 }
 
 """
@@ -3251,8 +4331,8 @@ input NutrientPatch {
   name: String
 }
 
-"""All input for the `updateNutrient` mutation."""
-input UpdateNutrientInput {
+"""All input for the `updateNutrientById` mutation."""
+input UpdateNutrientByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3262,7 +4342,7 @@ input UpdateNutrientInput {
   """
   An object where the defined keys will be set on the `Nutrient` being updated.
   """
-  patch: NutrientPatch!
+  nutrientPatch: NutrientPatch!
   id: Int!
 }
 
@@ -3289,8 +4369,8 @@ type UpdateRecipePayload {
   ): RecipesEdge
 }
 
-"""All input for the `updateRecipeByNodeId` mutation."""
-input UpdateRecipeByNodeIdInput {
+"""All input for the `updateRecipe` mutation."""
+input UpdateRecipeInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3305,7 +4385,7 @@ input UpdateRecipeByNodeIdInput {
   """
   An object where the defined keys will be set on the `Recipe` being updated.
   """
-  patch: RecipePatch!
+  recipePatch: RecipePatch!
 }
 
 """
@@ -3316,8 +4396,8 @@ input RecipePatch {
   description: String
 }
 
-"""All input for the `updateRecipe` mutation."""
-input UpdateRecipeInput {
+"""All input for the `updateRecipeById` mutation."""
+input UpdateRecipeByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3327,7 +4407,7 @@ input UpdateRecipeInput {
   """
   An object where the defined keys will be set on the `Recipe` being updated.
   """
-  patch: RecipePatch!
+  recipePatch: RecipePatch!
   id: Int!
 }
 
@@ -3348,10 +4428,10 @@ type UpdateRecipeFoodItemPayload {
   query: Query
 
   """Reads a single `Recipe` that is related to this `RecipeFoodItem`."""
-  recipe: Recipe
+  recipeByRecipeId: Recipe
 
   """Reads a single `Food` that is related to this `RecipeFoodItem`."""
-  food: Food
+  foodByFoodId: Food
 
   """An edge for our `RecipeFoodItem`. May be used by Relay 1."""
   recipeFoodItemEdge(
@@ -3360,8 +4440,8 @@ type UpdateRecipeFoodItemPayload {
   ): RecipeFoodItemsEdge
 }
 
-"""All input for the `updateRecipeFoodItemByNodeId` mutation."""
-input UpdateRecipeFoodItemByNodeIdInput {
+"""All input for the `updateRecipeFoodItem` mutation."""
+input UpdateRecipeFoodItemInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3376,7 +4456,7 @@ input UpdateRecipeFoodItemByNodeIdInput {
   """
   An object where the defined keys will be set on the `RecipeFoodItem` being updated.
   """
-  patch: RecipeFoodItemPatch!
+  recipeFoodItemPatch: RecipeFoodItemPatch!
 }
 
 """
@@ -3388,8 +4468,8 @@ input RecipeFoodItemPatch {
   amountInG: Float
 }
 
-"""All input for the `updateRecipeFoodItem` mutation."""
-input UpdateRecipeFoodItemInput {
+"""All input for the `updateRecipeFoodItemById` mutation."""
+input UpdateRecipeFoodItemByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3399,7 +4479,7 @@ input UpdateRecipeFoodItemInput {
   """
   An object where the defined keys will be set on the `RecipeFoodItem` being updated.
   """
-  patch: RecipeFoodItemPatch!
+  recipeFoodItemPatch: RecipeFoodItemPatch!
   id: Int!
 }
 
@@ -3414,7 +4494,7 @@ input UpdateRecipeFoodItemByRecipeIdAndFoodIdInput {
   """
   An object where the defined keys will be set on the `RecipeFoodItem` being updated.
   """
-  patch: RecipeFoodItemPatch!
+  recipeFoodItemPatch: RecipeFoodItemPatch!
   recipeId: Int!
   foodId: Int!
 }
@@ -3429,7 +4509,7 @@ type DeleteCollectionPayload {
 
   """The `Collection` that was deleted by this mutation."""
   collection: Collection
-  deletedCollectionNodeId: ID
+  deletedCollectionId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3443,8 +4523,8 @@ type DeleteCollectionPayload {
   ): CollectionsEdge
 }
 
-"""All input for the `deleteCollectionByNodeId` mutation."""
-input DeleteCollectionByNodeIdInput {
+"""All input for the `deleteCollection` mutation."""
+input DeleteCollectionInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3457,8 +4537,8 @@ input DeleteCollectionByNodeIdInput {
   nodeId: ID!
 }
 
-"""All input for the `deleteCollection` mutation."""
-input DeleteCollectionInput {
+"""All input for the `deleteCollectionById` mutation."""
+input DeleteCollectionByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3477,7 +4557,7 @@ type DeleteCollectionCollectionItemPayload {
 
   """The `CollectionCollectionItem` that was deleted by this mutation."""
   collectionCollectionItem: CollectionCollectionItem
-  deletedCollectionCollectionItemNodeId: ID
+  deletedCollectionCollectionItemId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3487,7 +4567,7 @@ type DeleteCollectionCollectionItemPayload {
   """
   Reads a single `Collection` that is related to this `CollectionCollectionItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 
   """An edge for our `CollectionCollectionItem`. May be used by Relay 1."""
   collectionCollectionItemEdge(
@@ -3496,8 +4576,8 @@ type DeleteCollectionCollectionItemPayload {
   ): CollectionCollectionItemsEdge
 }
 
-"""All input for the `deleteCollectionCollectionItemByNodeId` mutation."""
-input DeleteCollectionCollectionItemByNodeIdInput {
+"""All input for the `deleteCollectionCollectionItem` mutation."""
+input DeleteCollectionCollectionItemInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3510,8 +4590,8 @@ input DeleteCollectionCollectionItemByNodeIdInput {
   nodeId: ID!
 }
 
-"""All input for the `deleteCollectionCollectionItem` mutation."""
-input DeleteCollectionCollectionItemInput {
+"""All input for the `deleteCollectionCollectionItemById` mutation."""
+input DeleteCollectionCollectionItemByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3530,7 +4610,7 @@ type DeleteCollectionFoodItemPayload {
 
   """The `CollectionFoodItem` that was deleted by this mutation."""
   collectionFoodItem: CollectionFoodItem
-  deletedCollectionFoodItemNodeId: ID
+  deletedCollectionFoodItemId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3538,12 +4618,12 @@ type DeleteCollectionFoodItemPayload {
   query: Query
 
   """Reads a single `Food` that is related to this `CollectionFoodItem`."""
-  food: Food
+  foodByFoodId: Food
 
   """
   Reads a single `Collection` that is related to this `CollectionFoodItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 
   """An edge for our `CollectionFoodItem`. May be used by Relay 1."""
   collectionFoodItemEdge(
@@ -3552,8 +4632,8 @@ type DeleteCollectionFoodItemPayload {
   ): CollectionFoodItemsEdge
 }
 
-"""All input for the `deleteCollectionFoodItemByNodeId` mutation."""
-input DeleteCollectionFoodItemByNodeIdInput {
+"""All input for the `deleteCollectionFoodItem` mutation."""
+input DeleteCollectionFoodItemInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3566,8 +4646,8 @@ input DeleteCollectionFoodItemByNodeIdInput {
   nodeId: ID!
 }
 
-"""All input for the `deleteCollectionFoodItem` mutation."""
-input DeleteCollectionFoodItemInput {
+"""All input for the `deleteCollectionFoodItemById` mutation."""
+input DeleteCollectionFoodItemByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3599,7 +4679,7 @@ type DeleteCollectionRecipeItemPayload {
 
   """The `CollectionRecipeItem` that was deleted by this mutation."""
   collectionRecipeItem: CollectionRecipeItem
-  deletedCollectionRecipeItemNodeId: ID
+  deletedCollectionRecipeItemId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3609,12 +4689,12 @@ type DeleteCollectionRecipeItemPayload {
   """
   Reads a single `Recipe` that is related to this `CollectionRecipeItem`.
   """
-  recipe: Recipe
+  recipeByRecipeId: Recipe
 
   """
   Reads a single `Collection` that is related to this `CollectionRecipeItem`.
   """
-  collection: Collection
+  collectionByCollectionId: Collection
 
   """An edge for our `CollectionRecipeItem`. May be used by Relay 1."""
   collectionRecipeItemEdge(
@@ -3623,8 +4703,8 @@ type DeleteCollectionRecipeItemPayload {
   ): CollectionRecipeItemsEdge
 }
 
-"""All input for the `deleteCollectionRecipeItemByNodeId` mutation."""
-input DeleteCollectionRecipeItemByNodeIdInput {
+"""All input for the `deleteCollectionRecipeItem` mutation."""
+input DeleteCollectionRecipeItemInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3637,8 +4717,8 @@ input DeleteCollectionRecipeItemByNodeIdInput {
   nodeId: ID!
 }
 
-"""All input for the `deleteCollectionRecipeItem` mutation."""
-input DeleteCollectionRecipeItemInput {
+"""All input for the `deleteCollectionRecipeItemById` mutation."""
+input DeleteCollectionRecipeItemByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3670,7 +4750,7 @@ type DeleteFoodPayload {
 
   """The `Food` that was deleted by this mutation."""
   food: Food
-  deletedFoodNodeId: ID
+  deletedFoodId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3678,7 +4758,7 @@ type DeleteFoodPayload {
   query: Query
 
   """Reads a single `FoodGroup` that is related to this `Food`."""
-  foodGroup: FoodGroup
+  foodGroupByFoodGroupId: FoodGroup
 
   """An edge for our `Food`. May be used by Relay 1."""
   foodEdge(
@@ -3687,8 +4767,8 @@ type DeleteFoodPayload {
   ): FoodsEdge
 }
 
-"""All input for the `deleteFoodByNodeId` mutation."""
-input DeleteFoodByNodeIdInput {
+"""All input for the `deleteFood` mutation."""
+input DeleteFoodInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3701,8 +4781,8 @@ input DeleteFoodByNodeIdInput {
   nodeId: ID!
 }
 
-"""All input for the `deleteFood` mutation."""
-input DeleteFoodInput {
+"""All input for the `deleteFoodById` mutation."""
+input DeleteFoodByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3721,7 +4801,7 @@ type DeleteFoodGroupPayload {
 
   """The `FoodGroup` that was deleted by this mutation."""
   foodGroup: FoodGroup
-  deletedFoodGroupNodeId: ID
+  deletedFoodGroupId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3735,8 +4815,8 @@ type DeleteFoodGroupPayload {
   ): FoodGroupsEdge
 }
 
-"""All input for the `deleteFoodGroupByNodeId` mutation."""
-input DeleteFoodGroupByNodeIdInput {
+"""All input for the `deleteFoodGroup` mutation."""
+input DeleteFoodGroupInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3749,8 +4829,8 @@ input DeleteFoodGroupByNodeIdInput {
   nodeId: ID!
 }
 
-"""All input for the `deleteFoodGroup` mutation."""
-input DeleteFoodGroupInput {
+"""All input for the `deleteFoodGroupById` mutation."""
+input DeleteFoodGroupByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3769,7 +4849,7 @@ type DeleteFoodMeasureWeightPayload {
 
   """The `FoodMeasureWeight` that was deleted by this mutation."""
   foodMeasureWeight: FoodMeasureWeight
-  deletedFoodMeasureWeightNodeId: ID
+  deletedFoodMeasureWeightId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3777,7 +4857,7 @@ type DeleteFoodMeasureWeightPayload {
   query: Query
 
   """Reads a single `Food` that is related to this `FoodMeasureWeight`."""
-  food: Food
+  foodByFoodId: Food
 
   """An edge for our `FoodMeasureWeight`. May be used by Relay 1."""
   foodMeasureWeightEdge(
@@ -3786,8 +4866,8 @@ type DeleteFoodMeasureWeightPayload {
   ): FoodMeasureWeightsEdge
 }
 
-"""All input for the `deleteFoodMeasureWeightByNodeId` mutation."""
-input DeleteFoodMeasureWeightByNodeIdInput {
+"""All input for the `deleteFoodMeasureWeight` mutation."""
+input DeleteFoodMeasureWeightInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3800,8 +4880,8 @@ input DeleteFoodMeasureWeightByNodeIdInput {
   nodeId: ID!
 }
 
-"""All input for the `deleteFoodMeasureWeight` mutation."""
-input DeleteFoodMeasureWeightInput {
+"""All input for the `deleteFoodMeasureWeightById` mutation."""
+input DeleteFoodMeasureWeightByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3820,7 +4900,7 @@ type DeleteFoodNutrientPayload {
 
   """The `FoodNutrient` that was deleted by this mutation."""
   foodNutrient: FoodNutrient
-  deletedFoodNutrientNodeId: ID
+  deletedFoodNutrientId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3828,10 +4908,10 @@ type DeleteFoodNutrientPayload {
   query: Query
 
   """Reads a single `Nutrient` that is related to this `FoodNutrient`."""
-  nutrient: Nutrient
+  nutrientByNutrientId: Nutrient
 
   """Reads a single `Food` that is related to this `FoodNutrient`."""
-  food: Food
+  foodByFoodId: Food
 
   """An edge for our `FoodNutrient`. May be used by Relay 1."""
   foodNutrientEdge(
@@ -3840,8 +4920,8 @@ type DeleteFoodNutrientPayload {
   ): FoodNutrientsEdge
 }
 
-"""All input for the `deleteFoodNutrientByNodeId` mutation."""
-input DeleteFoodNutrientByNodeIdInput {
+"""All input for the `deleteFoodNutrient` mutation."""
+input DeleteFoodNutrientInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3854,8 +4934,8 @@ input DeleteFoodNutrientByNodeIdInput {
   nodeId: ID!
 }
 
-"""All input for the `deleteFoodNutrient` mutation."""
-input DeleteFoodNutrientInput {
+"""All input for the `deleteFoodNutrientById` mutation."""
+input DeleteFoodNutrientByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3885,7 +4965,7 @@ type DeleteNutrientPayload {
 
   """The `Nutrient` that was deleted by this mutation."""
   nutrient: Nutrient
-  deletedNutrientNodeId: ID
+  deletedNutrientId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3899,8 +4979,8 @@ type DeleteNutrientPayload {
   ): NutrientsEdge
 }
 
-"""All input for the `deleteNutrientByNodeId` mutation."""
-input DeleteNutrientByNodeIdInput {
+"""All input for the `deleteNutrient` mutation."""
+input DeleteNutrientInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3913,8 +4993,8 @@ input DeleteNutrientByNodeIdInput {
   nodeId: ID!
 }
 
-"""All input for the `deleteNutrient` mutation."""
-input DeleteNutrientInput {
+"""All input for the `deleteNutrientById` mutation."""
+input DeleteNutrientByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3933,7 +5013,7 @@ type DeleteRecipePayload {
 
   """The `Recipe` that was deleted by this mutation."""
   recipe: Recipe
-  deletedRecipeNodeId: ID
+  deletedRecipeId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3947,8 +5027,8 @@ type DeleteRecipePayload {
   ): RecipesEdge
 }
 
-"""All input for the `deleteRecipeByNodeId` mutation."""
-input DeleteRecipeByNodeIdInput {
+"""All input for the `deleteRecipe` mutation."""
+input DeleteRecipeInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3961,8 +5041,8 @@ input DeleteRecipeByNodeIdInput {
   nodeId: ID!
 }
 
-"""All input for the `deleteRecipe` mutation."""
-input DeleteRecipeInput {
+"""All input for the `deleteRecipeById` mutation."""
+input DeleteRecipeByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3981,7 +5061,7 @@ type DeleteRecipeFoodItemPayload {
 
   """The `RecipeFoodItem` that was deleted by this mutation."""
   recipeFoodItem: RecipeFoodItem
-  deletedRecipeFoodItemNodeId: ID
+  deletedRecipeFoodItemId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3989,10 +5069,10 @@ type DeleteRecipeFoodItemPayload {
   query: Query
 
   """Reads a single `Recipe` that is related to this `RecipeFoodItem`."""
-  recipe: Recipe
+  recipeByRecipeId: Recipe
 
   """Reads a single `Food` that is related to this `RecipeFoodItem`."""
-  food: Food
+  foodByFoodId: Food
 
   """An edge for our `RecipeFoodItem`. May be used by Relay 1."""
   recipeFoodItemEdge(
@@ -4001,8 +5081,8 @@ type DeleteRecipeFoodItemPayload {
   ): RecipeFoodItemsEdge
 }
 
-"""All input for the `deleteRecipeFoodItemByNodeId` mutation."""
-input DeleteRecipeFoodItemByNodeIdInput {
+"""All input for the `deleteRecipeFoodItem` mutation."""
+input DeleteRecipeFoodItemInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -4015,8 +5095,8 @@ input DeleteRecipeFoodItemByNodeIdInput {
   nodeId: ID!
 }
 
-"""All input for the `deleteRecipeFoodItem` mutation."""
-input DeleteRecipeFoodItemInput {
+"""All input for the `deleteRecipeFoodItemById` mutation."""
+input DeleteRecipeFoodItemByIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
