@@ -30,7 +30,7 @@
         "interactjs": "^1.10.11",
         "javascript-lp-solver": "^0.4.24",
         "m-class-list": "^1.1.9",
-        "node-fetch": "^2.6.1",
+        "node-fetch": "^3.1.1",
         "nuxt": "^2.15.4",
         "nuxt-buefy": "^0.4.5",
         "pluralize": "^8.0.0",
